@@ -38,17 +38,13 @@ contract ERC721Drop is
     bytes32 public immutable MINTER_ROLE = keccak256("MINTER");
     bytes32 public immutable SALES_MANAGER_ROLE = keccak256("SALES_MANAGER");
 
-    /// @notice Zora Mint Fee
-    uint256 private immutable ZORA_MINT_FEE;
-
+    /// @notice Mint Fee
+    uint256 public immutable MIMO_MINT_FEE;
     /// @notice Mint Fee Recipient
-    address payable private immutable ZORA_MINT_FEE_RECIPIENT;
+    address payable public immutable MIMO_MINT_FEE_RECIPIENT;
 
     /// @notice Max royalty BPS
     uint16 constant MAX_ROYALTY_BPS = 50_00;
-
-    // /// @notice Empty string for blank comments
-    // string constant EMPTY_STRING = "";
 
     /// @notice Only allow for users with admin access
     modifier onlyAdmin() {
@@ -122,8 +118,8 @@ contract ERC721Drop is
         IMetadataRenderer _metadataRenderer,
         bytes memory _metadataRendererInit
     ) ERC721A(_contractName, _contractSymbol) {
-        ZORA_MINT_FEE = _mintFeeAmount;
-        ZORA_MINT_FEE_RECIPIENT = _mintFeeRecipient;
+        MIMO_MINT_FEE = _mintFeeAmount;
+        MIMO_MINT_FEE_RECIPIENT = _mintFeeRecipient;
 
         // Setup the owner role
         _setupRole(DEFAULT_ADMIN_ROLE, _initialOwner);
@@ -199,11 +195,11 @@ contract ERC721Drop is
             });
     }
 
-    /// @notice ZORA fee is fixed now per mint
-    /// @dev Gets the zora fee for amount of withdraw
-    function zoraFeeForAmount(uint256 quantity) public view returns (address payable recipient, uint256 fee) {
-        recipient = ZORA_MINT_FEE_RECIPIENT;
-        fee = ZORA_MINT_FEE * quantity;
+    /// @notice MIMO fee is fixed now per mint
+    /// @dev Gets the mimo fee for amount of withdraw
+    function mimoFeeForAmount(uint256 quantity) public view returns (address payable recipient, uint256 fee) {
+        recipient = MIMO_MINT_FEE_RECIPIENT;
+        fee = MIMO_MINT_FEE * quantity;
     }
 
     /// @notice Purchase a quantity of tokens
@@ -226,11 +222,24 @@ contract ERC721Drop is
         return _handlePurchase(quantity, comment);
     }
 
+    /// @notice Function to mint NFTs
+    /// @dev (important: Does not enforce max supply limit, enforce that limit earlier)
+    /// @dev This batches in size of 8 as per recommended by ERC721A creators
+    /// @param to address to mint NFTs to
+    /// @param quantity number of NFTs to mint
+    function _mintNFTs(address to, uint256 quantity) internal {
+        do {
+            uint256 toMint = quantity > MAX_MINT_BATCH_SIZE ? MAX_MINT_BATCH_SIZE : quantity;
+            _mint({to: to, quantity: toMint});
+            quantity -= toMint;
+        } while (quantity > 0);
+    }
+
     function _handlePurchase(uint256 quantity, string memory comment) internal returns (uint256) {
         uint256 salePrice = salesConfig.publicSalePrice;
 
-        if (msg.value != (salePrice + ZORA_MINT_FEE) * quantity) {
-            revert Purchase_WrongPrice((salePrice + ZORA_MINT_FEE) * quantity);
+        if (msg.value != (salePrice + MIMO_MINT_FEE) * quantity) {
+            revert Purchase_WrongPrice((salePrice + MIMO_MINT_FEE) * quantity);
         }
 
         // If max purchase per address == 0 there is no limit.
@@ -244,9 +253,9 @@ contract ERC721Drop is
         }
 
         uint256 firstMintedTokenId = _nextTokenId();
-        _mint(_msgSender(), quantity);
+        _mintNFTs(_msgSender(), quantity);
 
-        _payoutZoraFee(quantity);
+        _payoutMimoFee(quantity);
 
         emit IERC721Drop.Sale({
             to: _msgSender(),
@@ -316,8 +325,8 @@ contract ERC721Drop is
             revert Presale_MerkleNotApproved();
         }
 
-        if (msg.value != (pricePerToken + ZORA_MINT_FEE) * quantity) {
-            revert Purchase_WrongPrice((pricePerToken + ZORA_MINT_FEE) * quantity);
+        if (msg.value != (pricePerToken + MIMO_MINT_FEE) * quantity) {
+            revert Purchase_WrongPrice((pricePerToken + MIMO_MINT_FEE) * quantity);
         }
 
         presaleMintsByAddress[_msgSender()] += quantity;
@@ -326,9 +335,9 @@ contract ERC721Drop is
         }
 
         uint256 firstMintedTokenId = _nextTokenId();
-        _mint(_msgSender(), quantity);
+        _mintNFTs(_msgSender(), quantity);
 
-        _payoutZoraFee(quantity);
+        _payoutMimoFee(quantity);
 
         emit IERC721Drop.Sale({
             to: _msgSender(),
@@ -356,7 +365,7 @@ contract ERC721Drop is
         address recipient,
         uint256 quantity
     ) external onlyRoleOrAdmin(MINTER_ROLE) canMintTokens(quantity) returns (uint256) {
-        _mint(recipient, quantity);
+        _mintNFTs(recipient, quantity);
 
         return _nextTokenId();
     }
@@ -371,7 +380,7 @@ contract ERC721Drop is
 
         unchecked {
             for (uint256 endAt = atId + recipients.length; atId < endAt; atId++) {
-                _mint(recipients[atId - startAt], 1);
+                _mintNFTs(recipients[atId - startAt], 1);
             }
         }
         return _nextTokenId();
@@ -521,11 +530,11 @@ contract ERC721Drop is
         }
     }
 
-    function _payoutZoraFee(uint256 quantity) internal {
-        // Transfer ZORA fee to recipient
-        (, uint256 zoraFee) = zoraFeeForAmount(quantity);
-        (bool success, ) = ZORA_MINT_FEE_RECIPIENT.call{value: zoraFee, gas: FUNDS_SEND_GAS_LIMIT}("");
-        emit MintFeePayout(zoraFee, ZORA_MINT_FEE_RECIPIENT, success);
+    function _payoutMimoFee(uint256 quantity) internal {
+        // Transfer MIMO fee to recipient
+        (, uint256 mimoFee) = mimoFeeForAmount(quantity);
+        (bool success, ) = MIMO_MINT_FEE_RECIPIENT.call{value: mimoFee, gas: FUNDS_SEND_GAS_LIMIT}("");
+        emit MintFeePayout(mimoFee, MIMO_MINT_FEE_RECIPIENT, success);
     }
 
     /// @notice ERC165 supports interface
