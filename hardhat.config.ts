@@ -31,17 +31,18 @@ const config: HardhatUserConfig = {
     networks: {
         hardhat: {
             saveDeployments: false,
-            tags: ['test', 'use_root'],
+        },
+        dev: { 
+            url: 'http://127.0.0.1:8545',
+            accounts: ['0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80'],
         },
         mainnet: {
             url: "https://babel-api.mainnet.iotex.io",
-            tags: ['use_root'],
             chainId: 4689,
             accounts: real_accounts,
         },
         testnet: {
             url: "https://babel-api.testnet.iotex.io",
-            tags: ['test', 'legacy', 'use_root'],
             chainId: 4690,
             accounts: real_accounts,
         }

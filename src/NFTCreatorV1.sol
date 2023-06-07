@@ -35,9 +35,9 @@ contract NFTCreatorV1 is Ownable {
         bytes[] memory setupCalls,
         bytes memory metadataInitializer
     ) public returns (ERC721Drop) {
-        ERC721Drop drop = new ERC721Drop(mintFee, mintFeeRecipient, name, symbol, defaultAdmin, setupCalls);
+        ERC721Drop drop = new ERC721Drop(mintFee, mintFeeRecipient, name, symbol, defaultAdmin, fundsRecipient);
         drop.initConfig({
-            _fundsRecipient: fundsRecipient,
+            _setupCalls: setupCalls,
             _editionSize: editionSize,
             _royaltyBPS: royaltyBPS,
             _metadataRenderer: metadataRenderer,

@@ -113,7 +113,7 @@ contract ERC721Drop is
         string memory _contractName,
         string memory _contractSymbol,
         address _initialOwner,
-        bytes[] memory _setupCalls
+        address payable _fundsRecipient
     ) ERC721A(_contractName, _contractSymbol) {
         _initialized = 0;
         MIMO_MINT_FEE = _mintFeeAmount;
@@ -124,6 +124,19 @@ contract ERC721Drop is
         // Set ownership to original sender of contract call
         _setOwner(_initialOwner);
 
+        config.fundsRecipient = _fundsRecipient;
+    }
+
+    function initConfig(
+        bytes[] memory _setupCalls,
+        uint64 _editionSize,
+        uint16 _royaltyBPS,
+        IMetadataRenderer _metadataRenderer,
+        bytes memory _metadataRendererInit
+    ) external {
+        require(_initialized < 1, "initialized");
+        _initialized = 1;
+
         if (_setupCalls.length > 0) {
             // Setup temporary role
             _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
@@ -132,17 +145,7 @@ contract ERC721Drop is
             // Remove temporary role
             _revokeRole(DEFAULT_ADMIN_ROLE, msg.sender);
         }
-    }
 
-    function initConfig(
-        address payable _fundsRecipient,
-        uint64 _editionSize,
-        uint16 _royaltyBPS,
-        IMetadataRenderer _metadataRenderer,
-        bytes memory _metadataRendererInit
-    ) external {
-        require(_initialized < 1, "initialized");
-        _initialized = 1;
         if (_royaltyBPS > MAX_ROYALTY_BPS || config.royaltyBPS > MAX_ROYALTY_BPS) {
             revert Setup_RoyaltyPercentageTooHigh(MAX_ROYALTY_BPS);
         }
@@ -151,7 +154,6 @@ contract ERC721Drop is
         config.editionSize = _editionSize;
         config.metadataRenderer = _metadataRenderer;
         config.royaltyBPS = _royaltyBPS;
-        config.fundsRecipient = _fundsRecipient;
         _metadataRenderer.initializeWithData(_metadataRendererInit);
     }
 

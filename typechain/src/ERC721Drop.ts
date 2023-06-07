@@ -105,7 +105,7 @@ export interface ERC721DropInterface extends utils.Interface {
     "getRoleAdmin(bytes32)": FunctionFragment;
     "grantRole(bytes32,address)": FunctionFragment;
     "hasRole(bytes32,address)": FunctionFragment;
-    "initConfig(address,uint64,uint16,address,bytes)": FunctionFragment;
+    "initConfig(bytes[],uint64,uint16,address,bytes)": FunctionFragment;
     "isAdmin(address)": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
     "metadataRenderer()": FunctionFragment;
@@ -262,7 +262,7 @@ export interface ERC721DropInterface extends utils.Interface {
   encodeFunctionData(
     functionFragment: "initConfig",
     values: [
-      PromiseOrValue<string>,
+      PromiseOrValue<BytesLike>[],
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<string>,
@@ -970,7 +970,7 @@ export interface ERC721Drop extends BaseContract {
     ): Promise<[boolean]>;
 
     initConfig(
-      _fundsRecipient: PromiseOrValue<string>,
+      _setupCalls: PromiseOrValue<BytesLike>[],
       _editionSize: PromiseOrValue<BigNumberish>,
       _royaltyBPS: PromiseOrValue<BigNumberish>,
       _metadataRenderer: PromiseOrValue<string>,
@@ -1245,7 +1245,7 @@ export interface ERC721Drop extends BaseContract {
   ): Promise<boolean>;
 
   initConfig(
-    _fundsRecipient: PromiseOrValue<string>,
+    _setupCalls: PromiseOrValue<BytesLike>[],
     _editionSize: PromiseOrValue<BigNumberish>,
     _royaltyBPS: PromiseOrValue<BigNumberish>,
     _metadataRenderer: PromiseOrValue<string>,
@@ -1510,7 +1510,7 @@ export interface ERC721Drop extends BaseContract {
     ): Promise<boolean>;
 
     initConfig(
-      _fundsRecipient: PromiseOrValue<string>,
+      _setupCalls: PromiseOrValue<BytesLike>[],
       _editionSize: PromiseOrValue<BigNumberish>,
       _royaltyBPS: PromiseOrValue<BigNumberish>,
       _metadataRenderer: PromiseOrValue<string>,
@@ -1992,7 +1992,7 @@ export interface ERC721Drop extends BaseContract {
     ): Promise<BigNumber>;
 
     initConfig(
-      _fundsRecipient: PromiseOrValue<string>,
+      _setupCalls: PromiseOrValue<BytesLike>[],
       _editionSize: PromiseOrValue<BigNumberish>,
       _royaltyBPS: PromiseOrValue<BigNumberish>,
       _metadataRenderer: PromiseOrValue<string>,
@@ -2241,7 +2241,7 @@ export interface ERC721Drop extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     initConfig(
-      _fundsRecipient: PromiseOrValue<string>,
+      _setupCalls: PromiseOrValue<BytesLike>[],
       _editionSize: PromiseOrValue<BigNumberish>,
       _royaltyBPS: PromiseOrValue<BigNumberish>,
       _metadataRenderer: PromiseOrValue<string>,
