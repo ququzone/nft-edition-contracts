@@ -10,12 +10,10 @@ contract NFTCreatorV1 is Ownable {
 
     uint256 public mintFee;
     address payable public mintFeeRecipient;
-    IMetadataRenderer public metadataRenderer;
 
-    constructor(uint256 _mintFee, address payable _mintFeeRecipient, IMetadataRenderer _metadataRenderer) {
+    constructor(uint256 _mintFee, address payable _mintFeeRecipient) {
         mintFee = _mintFee;
         mintFeeRecipient = _mintFeeRecipient;
-        metadataRenderer = _metadataRenderer;
     }
 
     function setMintFee(uint256 _mintFee) external onlyOwner {
@@ -26,11 +24,8 @@ contract NFTCreatorV1 is Ownable {
         mintFeeRecipient = _mintFeeRecipient;
     }
 
-    function setMetadataRenderer(IMetadataRenderer _metadataRenderer) external onlyOwner {
-        metadataRenderer = _metadataRenderer;
-    }
-
     function createAndConfigureDrop(
+        IMetadataRenderer metadataRenderer,
         string memory name,
         string memory symbol,
         address defaultAdmin,
