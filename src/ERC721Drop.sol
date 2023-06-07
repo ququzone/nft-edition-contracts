@@ -28,6 +28,8 @@ contract ERC721Drop is
     FundsReceiver,
     ERC721DropStorageV1
 {
+    uint8 private _initialized;
+
     /// @dev This is the max mint batch size for the optimized ERC721A mint contract
     uint256 internal immutable MAX_MINT_BATCH_SIZE = 8;
 
@@ -113,6 +115,7 @@ contract ERC721Drop is
         address _initialOwner,
         bytes[] memory _setupCalls
     ) ERC721A(_contractName, _contractSymbol) {
+        _initialized = 0;
         MIMO_MINT_FEE = _mintFeeAmount;
         MIMO_MINT_FEE_RECIPIENT = _mintFeeRecipient;
 
@@ -138,6 +141,8 @@ contract ERC721Drop is
         IMetadataRenderer _metadataRenderer,
         bytes memory _metadataRendererInit
     ) external {
+        require(_initialized < 1, "initialized");
+        _initialized = 1;
         if (_royaltyBPS > MAX_ROYALTY_BPS || config.royaltyBPS > MAX_ROYALTY_BPS) {
             revert Setup_RoyaltyPercentageTooHigh(MAX_ROYALTY_BPS);
         }
