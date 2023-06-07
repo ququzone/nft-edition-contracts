@@ -111,12 +111,7 @@ contract ERC721Drop is
         string memory _contractName,
         string memory _contractSymbol,
         address _initialOwner,
-        address payable _fundsRecipient,
-        uint64 _editionSize,
-        uint16 _royaltyBPS,
-        bytes[] memory _setupCalls,
-        IMetadataRenderer _metadataRenderer,
-        bytes memory _metadataRendererInit
+        bytes[] memory _setupCalls
     ) ERC721A(_contractName, _contractSymbol) {
         MIMO_MINT_FEE = _mintFeeAmount;
         MIMO_MINT_FEE_RECIPIENT = _mintFeeRecipient;
@@ -134,8 +129,16 @@ contract ERC721Drop is
             // Remove temporary role
             _revokeRole(DEFAULT_ADMIN_ROLE, msg.sender);
         }
+    }
 
-        if (config.royaltyBPS > MAX_ROYALTY_BPS) {
+    function initConfig(
+        address payable _fundsRecipient,
+        uint64 _editionSize,
+        uint16 _royaltyBPS,
+        IMetadataRenderer _metadataRenderer,
+        bytes memory _metadataRendererInit
+    ) external {
+        if (_royaltyBPS > MAX_ROYALTY_BPS || config.royaltyBPS > MAX_ROYALTY_BPS) {
             revert Setup_RoyaltyPercentageTooHigh(MAX_ROYALTY_BPS);
         }
 
