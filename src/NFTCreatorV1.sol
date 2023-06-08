@@ -126,10 +126,10 @@ contract NFTCreatorV1 is Ownable {
     function createEdition(
         string memory name,
         string memory symbol,
+        address defaultAdmin,
         uint64 editionSize,
         uint16 royaltyBPS,
         address payable fundsRecipient,
-        address defaultAdmin,
         IERC721Drop.SalesConfiguration memory saleConfig,
         string memory description,
         string memory animationURI,
