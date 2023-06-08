@@ -1,56 +1,33 @@
 import { ethers } from "hardhat"
 
-import { utils } from "ethers"
-
-import { NFTCreatorV1, DropMetadataRenderer, ERC721Drop__factory } from "../typechain"
+import { NFTCreatorV1 } from "../typechain"
 
 async function main() {
-    const renderer = (await ethers.getContract("DropMetadataRenderer")) as DropMetadataRenderer
-    const metadataInitializer = utils.defaultAbiCoder.encode(
-        ["string", "string"],
-        ["https://nft.asset/", ""]
-    )
-
-    const setSaleInterface = new ethers.utils.Interface([
-    `function setSaleConfiguration(
-        uint104 publicSalePrice,
-        uint32 maxSalePurchasePerAddress,
-        uint64 publicSaleStart,
-        uint64 publicSaleEnd,
-        uint64 presaleStart,
-        uint64 presaleEnd,
-        bytes32 presaleMerkleRoot
-    )`]);
-    const setupCalls = setSaleInterface.encodeFunctionData(
-        'setSaleConfiguration',
-        [
-            0, // publicSalePrice
-            10, // maxSalePurchasePerAddress
-            1, // publicSaleStart
-            9999999999, // publicSaleEnd
-            0, // presaleStart
-            0, // presaleEnd
-            `0x${"0".repeat(64)}` // presaleMerkleRoot
-        ] 
-    )
-
     const user = new ethers.Wallet(process.env.USER_KEY!, ethers.provider)
     const creator = (await ethers.getContract("NFTCreatorV1")) as NFTCreatorV1
 
-    const nft = await creator.connect(user).createAndConfigureDrop(
-        renderer.address,
-        "test nft",
-        "TNF",
+    const nft = await creator.connect(user).createDrop(
+        "test nft",   // name
+        "TNF",        // symbol
         user.address, // admin
-        1000,
-        500, // 5%
+        1000,         // editionSize
+        500,          // 5% royaltyBPS
         user.address, // fundsRecipient
-        [setupCalls],
-        metadataInitializer
+        {
+            publicSalePrice: 0,
+            maxSalePurchasePerAddress: 10,
+            publicSaleStart: 1,
+            publicSaleEnd: 9999999999,
+            presaleStart: 0,
+            presaleEnd: 0,
+            presaleMerkleRoot: `0x${"0".repeat(64)}`
+        },
+        "https://nft.asset/", // metadataURIBase
+        ""                    // metadataContractURI
     )
 
     const receipt = await nft.wait()
-    console.log(`created nft address: ${receipt.events![0].address}`)
+    console.log(`created drop nft address: ${receipt.events![receipt.events!.length - 1].args![1]}`)
 }
 
 main()
