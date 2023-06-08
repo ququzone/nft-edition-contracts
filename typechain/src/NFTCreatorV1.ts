@@ -27,27 +27,67 @@ import type {
   PromiseOrValue,
 } from "../common";
 
+export declare namespace IERC721Drop {
+  export type SalesConfigurationStruct = {
+    publicSalePrice: PromiseOrValue<BigNumberish>;
+    maxSalePurchasePerAddress: PromiseOrValue<BigNumberish>;
+    publicSaleStart: PromiseOrValue<BigNumberish>;
+    publicSaleEnd: PromiseOrValue<BigNumberish>;
+    presaleStart: PromiseOrValue<BigNumberish>;
+    presaleEnd: PromiseOrValue<BigNumberish>;
+    presaleMerkleRoot: PromiseOrValue<BytesLike>;
+  };
+
+  export type SalesConfigurationStructOutput = [
+    BigNumber,
+    number,
+    BigNumber,
+    BigNumber,
+    BigNumber,
+    BigNumber,
+    string
+  ] & {
+    publicSalePrice: BigNumber;
+    maxSalePurchasePerAddress: number;
+    publicSaleStart: BigNumber;
+    publicSaleEnd: BigNumber;
+    presaleStart: BigNumber;
+    presaleEnd: BigNumber;
+    presaleMerkleRoot: string;
+  };
+}
+
 export interface NFTCreatorV1Interface extends utils.Interface {
   functions: {
-    "createAndConfigureDrop(address,string,string,address,uint64,uint16,address,bytes[],bytes)": FunctionFragment;
+    "createAndConfigureDrop(string,string,address,uint64,uint16,address,bytes[],address,bytes)": FunctionFragment;
+    "createDrop(string,string,address,uint64,uint16,address,(uint104,uint32,uint64,uint64,uint64,uint64,bytes32),string,string)": FunctionFragment;
+    "createEdition(string,string,uint64,uint16,address,address,(uint104,uint32,uint64,uint64,uint64,uint64,bytes32),string,string,string)": FunctionFragment;
+    "dropMetadataRenderer()": FunctionFragment;
+    "editionMetadataRenderer()": FunctionFragment;
     "mintFee()": FunctionFragment;
     "mintFeeRecipient()": FunctionFragment;
     "owner()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "setMintFee(uint256)": FunctionFragment;
     "setmintFeeRecipient(address)": FunctionFragment;
+    "setupDropsContract(string,string,address,address,uint64,uint16,(uint104,uint32,uint64,uint64,uint64,uint64,bytes32),address,bytes)": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
   };
 
   getFunction(
     nameOrSignatureOrTopic:
       | "createAndConfigureDrop"
+      | "createDrop"
+      | "createEdition"
+      | "dropMetadataRenderer"
+      | "editionMetadataRenderer"
       | "mintFee"
       | "mintFeeRecipient"
       | "owner"
       | "renounceOwnership"
       | "setMintFee"
       | "setmintFeeRecipient"
+      | "setupDropsContract"
       | "transferOwnership"
   ): FunctionFragment;
 
@@ -57,13 +97,50 @@ export interface NFTCreatorV1Interface extends utils.Interface {
       PromiseOrValue<string>,
       PromiseOrValue<string>,
       PromiseOrValue<string>,
-      PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<string>,
       PromiseOrValue<BytesLike>[],
+      PromiseOrValue<string>,
       PromiseOrValue<BytesLike>
     ]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "createDrop",
+    values: [
+      PromiseOrValue<string>,
+      PromiseOrValue<string>,
+      PromiseOrValue<string>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<string>,
+      IERC721Drop.SalesConfigurationStruct,
+      PromiseOrValue<string>,
+      PromiseOrValue<string>
+    ]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "createEdition",
+    values: [
+      PromiseOrValue<string>,
+      PromiseOrValue<string>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<string>,
+      PromiseOrValue<string>,
+      IERC721Drop.SalesConfigurationStruct,
+      PromiseOrValue<string>,
+      PromiseOrValue<string>,
+      PromiseOrValue<string>
+    ]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "dropMetadataRenderer",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "editionMetadataRenderer",
+    values?: undefined
   ): string;
   encodeFunctionData(functionFragment: "mintFee", values?: undefined): string;
   encodeFunctionData(
@@ -84,12 +161,39 @@ export interface NFTCreatorV1Interface extends utils.Interface {
     values: [PromiseOrValue<string>]
   ): string;
   encodeFunctionData(
+    functionFragment: "setupDropsContract",
+    values: [
+      PromiseOrValue<string>,
+      PromiseOrValue<string>,
+      PromiseOrValue<string>,
+      PromiseOrValue<string>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      IERC721Drop.SalesConfigurationStruct,
+      PromiseOrValue<string>,
+      PromiseOrValue<BytesLike>
+    ]
+  ): string;
+  encodeFunctionData(
     functionFragment: "transferOwnership",
     values: [PromiseOrValue<string>]
   ): string;
 
   decodeFunctionResult(
     functionFragment: "createAndConfigureDrop",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "createDrop", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "createEdition",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "dropMetadataRenderer",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "editionMetadataRenderer",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "mintFee", data: BytesLike): Result;
@@ -105,6 +209,10 @@ export interface NFTCreatorV1Interface extends utils.Interface {
   decodeFunctionResult(functionFragment: "setMintFee", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "setmintFeeRecipient",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setupDropsContract",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -173,7 +281,6 @@ export interface NFTCreatorV1 extends BaseContract {
 
   functions: {
     createAndConfigureDrop(
-      metadataRenderer: PromiseOrValue<string>,
       name: PromiseOrValue<string>,
       symbol: PromiseOrValue<string>,
       defaultAdmin: PromiseOrValue<string>,
@@ -181,9 +288,41 @@ export interface NFTCreatorV1 extends BaseContract {
       royaltyBPS: PromiseOrValue<BigNumberish>,
       fundsRecipient: PromiseOrValue<string>,
       setupCalls: PromiseOrValue<BytesLike>[],
+      metadataRenderer: PromiseOrValue<string>,
       metadataInitializer: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
+
+    createDrop(
+      name: PromiseOrValue<string>,
+      symbol: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
+      editionSize: PromiseOrValue<BigNumberish>,
+      royaltyBPS: PromiseOrValue<BigNumberish>,
+      fundsRecipient: PromiseOrValue<string>,
+      saleConfig: IERC721Drop.SalesConfigurationStruct,
+      metadataURIBase: PromiseOrValue<string>,
+      metadataContractURI: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<ContractTransaction>;
+
+    createEdition(
+      name: PromiseOrValue<string>,
+      symbol: PromiseOrValue<string>,
+      editionSize: PromiseOrValue<BigNumberish>,
+      royaltyBPS: PromiseOrValue<BigNumberish>,
+      fundsRecipient: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
+      saleConfig: IERC721Drop.SalesConfigurationStruct,
+      description: PromiseOrValue<string>,
+      animationURI: PromiseOrValue<string>,
+      imageURI: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<ContractTransaction>;
+
+    dropMetadataRenderer(overrides?: CallOverrides): Promise<[string]>;
+
+    editionMetadataRenderer(overrides?: CallOverrides): Promise<[string]>;
 
     mintFee(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -205,6 +344,19 @@ export interface NFTCreatorV1 extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
+    setupDropsContract(
+      name: PromiseOrValue<string>,
+      symbol: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
+      fundsRecipient: PromiseOrValue<string>,
+      editionSize: PromiseOrValue<BigNumberish>,
+      royaltyBPS: PromiseOrValue<BigNumberish>,
+      saleConfig: IERC721Drop.SalesConfigurationStruct,
+      metadataRenderer: PromiseOrValue<string>,
+      metadataInitializer: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<ContractTransaction>;
+
     transferOwnership(
       newOwner: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -212,7 +364,6 @@ export interface NFTCreatorV1 extends BaseContract {
   };
 
   createAndConfigureDrop(
-    metadataRenderer: PromiseOrValue<string>,
     name: PromiseOrValue<string>,
     symbol: PromiseOrValue<string>,
     defaultAdmin: PromiseOrValue<string>,
@@ -220,9 +371,41 @@ export interface NFTCreatorV1 extends BaseContract {
     royaltyBPS: PromiseOrValue<BigNumberish>,
     fundsRecipient: PromiseOrValue<string>,
     setupCalls: PromiseOrValue<BytesLike>[],
+    metadataRenderer: PromiseOrValue<string>,
     metadataInitializer: PromiseOrValue<BytesLike>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
+
+  createDrop(
+    name: PromiseOrValue<string>,
+    symbol: PromiseOrValue<string>,
+    defaultAdmin: PromiseOrValue<string>,
+    editionSize: PromiseOrValue<BigNumberish>,
+    royaltyBPS: PromiseOrValue<BigNumberish>,
+    fundsRecipient: PromiseOrValue<string>,
+    saleConfig: IERC721Drop.SalesConfigurationStruct,
+    metadataURIBase: PromiseOrValue<string>,
+    metadataContractURI: PromiseOrValue<string>,
+    overrides?: Overrides & { from?: PromiseOrValue<string> }
+  ): Promise<ContractTransaction>;
+
+  createEdition(
+    name: PromiseOrValue<string>,
+    symbol: PromiseOrValue<string>,
+    editionSize: PromiseOrValue<BigNumberish>,
+    royaltyBPS: PromiseOrValue<BigNumberish>,
+    fundsRecipient: PromiseOrValue<string>,
+    defaultAdmin: PromiseOrValue<string>,
+    saleConfig: IERC721Drop.SalesConfigurationStruct,
+    description: PromiseOrValue<string>,
+    animationURI: PromiseOrValue<string>,
+    imageURI: PromiseOrValue<string>,
+    overrides?: Overrides & { from?: PromiseOrValue<string> }
+  ): Promise<ContractTransaction>;
+
+  dropMetadataRenderer(overrides?: CallOverrides): Promise<string>;
+
+  editionMetadataRenderer(overrides?: CallOverrides): Promise<string>;
 
   mintFee(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -244,6 +427,19 @@ export interface NFTCreatorV1 extends BaseContract {
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
+  setupDropsContract(
+    name: PromiseOrValue<string>,
+    symbol: PromiseOrValue<string>,
+    defaultAdmin: PromiseOrValue<string>,
+    fundsRecipient: PromiseOrValue<string>,
+    editionSize: PromiseOrValue<BigNumberish>,
+    royaltyBPS: PromiseOrValue<BigNumberish>,
+    saleConfig: IERC721Drop.SalesConfigurationStruct,
+    metadataRenderer: PromiseOrValue<string>,
+    metadataInitializer: PromiseOrValue<BytesLike>,
+    overrides?: Overrides & { from?: PromiseOrValue<string> }
+  ): Promise<ContractTransaction>;
+
   transferOwnership(
     newOwner: PromiseOrValue<string>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -251,7 +447,6 @@ export interface NFTCreatorV1 extends BaseContract {
 
   callStatic: {
     createAndConfigureDrop(
-      metadataRenderer: PromiseOrValue<string>,
       name: PromiseOrValue<string>,
       symbol: PromiseOrValue<string>,
       defaultAdmin: PromiseOrValue<string>,
@@ -259,9 +454,41 @@ export interface NFTCreatorV1 extends BaseContract {
       royaltyBPS: PromiseOrValue<BigNumberish>,
       fundsRecipient: PromiseOrValue<string>,
       setupCalls: PromiseOrValue<BytesLike>[],
+      metadataRenderer: PromiseOrValue<string>,
       metadataInitializer: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
     ): Promise<string>;
+
+    createDrop(
+      name: PromiseOrValue<string>,
+      symbol: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
+      editionSize: PromiseOrValue<BigNumberish>,
+      royaltyBPS: PromiseOrValue<BigNumberish>,
+      fundsRecipient: PromiseOrValue<string>,
+      saleConfig: IERC721Drop.SalesConfigurationStruct,
+      metadataURIBase: PromiseOrValue<string>,
+      metadataContractURI: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    createEdition(
+      name: PromiseOrValue<string>,
+      symbol: PromiseOrValue<string>,
+      editionSize: PromiseOrValue<BigNumberish>,
+      royaltyBPS: PromiseOrValue<BigNumberish>,
+      fundsRecipient: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
+      saleConfig: IERC721Drop.SalesConfigurationStruct,
+      description: PromiseOrValue<string>,
+      animationURI: PromiseOrValue<string>,
+      imageURI: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    dropMetadataRenderer(overrides?: CallOverrides): Promise<string>;
+
+    editionMetadataRenderer(overrides?: CallOverrides): Promise<string>;
 
     mintFee(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -280,6 +507,19 @@ export interface NFTCreatorV1 extends BaseContract {
       _mintFeeRecipient: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<void>;
+
+    setupDropsContract(
+      name: PromiseOrValue<string>,
+      symbol: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
+      fundsRecipient: PromiseOrValue<string>,
+      editionSize: PromiseOrValue<BigNumberish>,
+      royaltyBPS: PromiseOrValue<BigNumberish>,
+      saleConfig: IERC721Drop.SalesConfigurationStruct,
+      metadataRenderer: PromiseOrValue<string>,
+      metadataInitializer: PromiseOrValue<BytesLike>,
+      overrides?: CallOverrides
+    ): Promise<string>;
 
     transferOwnership(
       newOwner: PromiseOrValue<string>,
@@ -311,7 +551,6 @@ export interface NFTCreatorV1 extends BaseContract {
 
   estimateGas: {
     createAndConfigureDrop(
-      metadataRenderer: PromiseOrValue<string>,
       name: PromiseOrValue<string>,
       symbol: PromiseOrValue<string>,
       defaultAdmin: PromiseOrValue<string>,
@@ -319,9 +558,41 @@ export interface NFTCreatorV1 extends BaseContract {
       royaltyBPS: PromiseOrValue<BigNumberish>,
       fundsRecipient: PromiseOrValue<string>,
       setupCalls: PromiseOrValue<BytesLike>[],
+      metadataRenderer: PromiseOrValue<string>,
       metadataInitializer: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
+
+    createDrop(
+      name: PromiseOrValue<string>,
+      symbol: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
+      editionSize: PromiseOrValue<BigNumberish>,
+      royaltyBPS: PromiseOrValue<BigNumberish>,
+      fundsRecipient: PromiseOrValue<string>,
+      saleConfig: IERC721Drop.SalesConfigurationStruct,
+      metadataURIBase: PromiseOrValue<string>,
+      metadataContractURI: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<BigNumber>;
+
+    createEdition(
+      name: PromiseOrValue<string>,
+      symbol: PromiseOrValue<string>,
+      editionSize: PromiseOrValue<BigNumberish>,
+      royaltyBPS: PromiseOrValue<BigNumberish>,
+      fundsRecipient: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
+      saleConfig: IERC721Drop.SalesConfigurationStruct,
+      description: PromiseOrValue<string>,
+      animationURI: PromiseOrValue<string>,
+      imageURI: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<BigNumber>;
+
+    dropMetadataRenderer(overrides?: CallOverrides): Promise<BigNumber>;
+
+    editionMetadataRenderer(overrides?: CallOverrides): Promise<BigNumber>;
 
     mintFee(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -343,6 +614,19 @@ export interface NFTCreatorV1 extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
+    setupDropsContract(
+      name: PromiseOrValue<string>,
+      symbol: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
+      fundsRecipient: PromiseOrValue<string>,
+      editionSize: PromiseOrValue<BigNumberish>,
+      royaltyBPS: PromiseOrValue<BigNumberish>,
+      saleConfig: IERC721Drop.SalesConfigurationStruct,
+      metadataRenderer: PromiseOrValue<string>,
+      metadataInitializer: PromiseOrValue<BytesLike>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<BigNumber>;
+
     transferOwnership(
       newOwner: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -351,7 +635,6 @@ export interface NFTCreatorV1 extends BaseContract {
 
   populateTransaction: {
     createAndConfigureDrop(
-      metadataRenderer: PromiseOrValue<string>,
       name: PromiseOrValue<string>,
       symbol: PromiseOrValue<string>,
       defaultAdmin: PromiseOrValue<string>,
@@ -359,8 +642,44 @@ export interface NFTCreatorV1 extends BaseContract {
       royaltyBPS: PromiseOrValue<BigNumberish>,
       fundsRecipient: PromiseOrValue<string>,
       setupCalls: PromiseOrValue<BytesLike>[],
+      metadataRenderer: PromiseOrValue<string>,
       metadataInitializer: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<PopulatedTransaction>;
+
+    createDrop(
+      name: PromiseOrValue<string>,
+      symbol: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
+      editionSize: PromiseOrValue<BigNumberish>,
+      royaltyBPS: PromiseOrValue<BigNumberish>,
+      fundsRecipient: PromiseOrValue<string>,
+      saleConfig: IERC721Drop.SalesConfigurationStruct,
+      metadataURIBase: PromiseOrValue<string>,
+      metadataContractURI: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<PopulatedTransaction>;
+
+    createEdition(
+      name: PromiseOrValue<string>,
+      symbol: PromiseOrValue<string>,
+      editionSize: PromiseOrValue<BigNumberish>,
+      royaltyBPS: PromiseOrValue<BigNumberish>,
+      fundsRecipient: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
+      saleConfig: IERC721Drop.SalesConfigurationStruct,
+      description: PromiseOrValue<string>,
+      animationURI: PromiseOrValue<string>,
+      imageURI: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<PopulatedTransaction>;
+
+    dropMetadataRenderer(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    editionMetadataRenderer(
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     mintFee(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -380,6 +699,19 @@ export interface NFTCreatorV1 extends BaseContract {
 
     setmintFeeRecipient(
       _mintFeeRecipient: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<PopulatedTransaction>;
+
+    setupDropsContract(
+      name: PromiseOrValue<string>,
+      symbol: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
+      fundsRecipient: PromiseOrValue<string>,
+      editionSize: PromiseOrValue<BigNumberish>,
+      royaltyBPS: PromiseOrValue<BigNumberish>,
+      saleConfig: IERC721Drop.SalesConfigurationStruct,
+      metadataRenderer: PromiseOrValue<string>,
+      metadataInitializer: PromiseOrValue<BytesLike>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 

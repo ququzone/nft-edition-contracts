@@ -1,0 +1,442 @@
+{
+  "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "Access_OnlyAdmin",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "MetadataFrozen",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "target",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "metadataBase",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "metadataExtension",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "contractURI",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "freezeAt",
+          "type": "uint256"
+        }
+      ],
+      "name": "MetadataUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "target",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "provenanceHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "ProvenanceHashUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "contractURI",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "initializeWithData",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "metadataBaseByContract",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "base",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "extension",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "contractURI",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "freezeAt",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "provenanceHashes",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenURI",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "target",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "baseUri",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "newContractUri",
+          "type": "string"
+        }
+      ],
+      "name": "updateMetadataBase",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "target",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "metadataBase",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "metadataExtension",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "newContractURI",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "freezeAt",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateMetadataBaseWithDetails",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "target",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "provenanceHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "updateProvenanceHash",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x846de4c574ab414e0902e6049c1e6c0a545c816bcb1c46cf60fa4e2aaa6b99ee",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+    "transactionIndex": 0,
+    "gasUsed": "996937",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x9cfc70ee4c83f7912b6ce401b2bc367f77b8c9652afacba1fd94274d86f41cc8",
+    "transactionHash": "0x846de4c574ab414e0902e6049c1e6c0a545c816bcb1c46cf60fa4e2aaa6b99ee",
+    "logs": [],
+    "blockNumber": 11,
+    "cumulativeGasUsed": "996937",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "4f5948489c408dfb5f1dd098ca1442f7",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"Access_OnlyAdmin\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"MetadataFrozen\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"metadataBase\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"metadataExtension\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"contractURI\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"freezeAt\",\"type\":\"uint256\"}],\"name\":\"MetadataUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"provenanceHash\",\"type\":\"bytes32\"}],\"name\":\"ProvenanceHashUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"contractURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"initializeWithData\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"metadataBaseByContract\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"base\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"extension\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"contractURI\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"freezeAt\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"provenanceHashes\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"baseUri\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"newContractUri\",\"type\":\"string\"}],\"name\":\"updateMetadataBase\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"metadataBase\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"metadataExtension\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"newContractURI\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"freezeAt\",\"type\":\"uint256\"}],\"name\":\"updateMetadataBaseWithDetails\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"provenanceHash\",\"type\":\"bytes32\"}],\"name\":\"updateProvenanceHash\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"contractURI()\":{\"details\":\"reverts if a contract uri is not provided\",\"returns\":{\"_0\":\"contract uri for the contract metadata\"}},\"initializeWithData(bytes)\":{\"params\":{\"data\":\"passed in for initialization\"}},\"tokenURI(uint256)\":{\"details\":\"reverts if a contract uri is not set\",\"returns\":{\"_0\":\"token URI for the given token ID and contract (set by msg.sender)\"}},\"updateMetadataBase(address,string,string)\":{\"params\":{\"baseUri\":\"new base URI\",\"newContractUri\":\"new contract URI (can be an empty string)\"}},\"updateMetadataBaseWithDetails(address,string,string,string,uint256)\":{\"params\":{\"freezeAt\":\"time to freeze the contract metadata at (set to 0 to disable)\",\"metadataBase\":\"new base URI to update metadata with\",\"metadataExtension\":\"new extension to append to base metadata URI\",\"target\":\"target contract to update metadata for\"}},\"updateProvenanceHash(address,bytes32)\":{\"params\":{\"provenanceHash\":\"provenance hash to set\",\"target\":\"target address to update\"}}},\"version\":1},\"userdoc\":{\"events\":{\"MetadataUpdated(address,string,string,string,uint256)\":{\"notice\":\"Event to mark updated metadata information\"},\"ProvenanceHashUpdated(address,bytes32)\":{\"notice\":\"Hash to mark updated provenance hash\"}},\"kind\":\"user\",\"methods\":{\"contractURI()\":{\"notice\":\"A contract URI for the given drop contract\"},\"initializeWithData(bytes)\":{\"notice\":\"Standard init for drop metadata from root drop contract\"},\"metadataBaseByContract(address)\":{\"notice\":\"NFT metadata by contract\"},\"provenanceHashes(address)\":{\"notice\":\"Optional provenance hashes for NFT metadata by contract\"},\"tokenURI(uint256)\":{\"notice\":\"A token URI for the given drops contract\"},\"updateMetadataBase(address,string,string)\":{\"notice\":\"Update metadata base URI and contract URI\"},\"updateMetadataBaseWithDetails(address,string,string,string,uint256)\":{\"notice\":\"Update metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing details\"},\"updateProvenanceHash(address,bytes32)\":{\"notice\":\"Update the provenance hash (optional) for a given nft\"}},\"notice\":\"Drops metadata system\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/metadata/DropMetadataRenderer.sol\":\"DropMetadataRenderer\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":1300},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/utils/Strings.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.9.0) (utils/Strings.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"./math/Math.sol\\\";\\nimport \\\"./math/SignedMath.sol\\\";\\n\\n/**\\n * @dev String operations.\\n */\\nlibrary Strings {\\n    bytes16 private constant _SYMBOLS = \\\"0123456789abcdef\\\";\\n    uint8 private constant _ADDRESS_LENGTH = 20;\\n\\n    /**\\n     * @dev Converts a `uint256` to its ASCII `string` decimal representation.\\n     */\\n    function toString(uint256 value) internal pure returns (string memory) {\\n        unchecked {\\n            uint256 length = Math.log10(value) + 1;\\n            string memory buffer = new string(length);\\n            uint256 ptr;\\n            /// @solidity memory-safe-assembly\\n            assembly {\\n                ptr := add(buffer, add(32, length))\\n            }\\n            while (true) {\\n                ptr--;\\n                /// @solidity memory-safe-assembly\\n                assembly {\\n                    mstore8(ptr, byte(mod(value, 10), _SYMBOLS))\\n                }\\n                value /= 10;\\n                if (value == 0) break;\\n            }\\n            return buffer;\\n        }\\n    }\\n\\n    /**\\n     * @dev Converts a `int256` to its ASCII `string` decimal representation.\\n     */\\n    function toString(int256 value) internal pure returns (string memory) {\\n        return string(abi.encodePacked(value < 0 ? \\\"-\\\" : \\\"\\\", toString(SignedMath.abs(value))));\\n    }\\n\\n    /**\\n     * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation.\\n     */\\n    function toHexString(uint256 value) internal pure returns (string memory) {\\n        unchecked {\\n            return toHexString(value, Math.log256(value) + 1);\\n        }\\n    }\\n\\n    /**\\n     * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation with fixed length.\\n     */\\n    function toHexString(uint256 value, uint256 length) internal pure returns (string memory) {\\n        bytes memory buffer = new bytes(2 * length + 2);\\n        buffer[0] = \\\"0\\\";\\n        buffer[1] = \\\"x\\\";\\n        for (uint256 i = 2 * length + 1; i > 1; --i) {\\n            buffer[i] = _SYMBOLS[value & 0xf];\\n            value >>= 4;\\n        }\\n        require(value == 0, \\\"Strings: hex length insufficient\\\");\\n        return string(buffer);\\n    }\\n\\n    /**\\n     * @dev Converts an `address` with fixed length of 20 bytes to its not checksummed ASCII `string` hexadecimal representation.\\n     */\\n    function toHexString(address addr) internal pure returns (string memory) {\\n        return toHexString(uint256(uint160(addr)), _ADDRESS_LENGTH);\\n    }\\n\\n    /**\\n     * @dev Returns true if the two strings are equal.\\n     */\\n    function equal(string memory a, string memory b) internal pure returns (bool) {\\n        return keccak256(bytes(a)) == keccak256(bytes(b));\\n    }\\n}\\n\",\"keccak256\":\"0x3088eb2868e8d13d89d16670b5f8612c4ab9ff8956272837d8e90106c59c14a0\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/math/Math.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.9.0) (utils/math/Math.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Standard math utilities missing in the Solidity language.\\n */\\nlibrary Math {\\n    enum Rounding {\\n        Down, // Toward negative infinity\\n        Up, // Toward infinity\\n        Zero // Toward zero\\n    }\\n\\n    /**\\n     * @dev Returns the largest of two numbers.\\n     */\\n    function max(uint256 a, uint256 b) internal pure returns (uint256) {\\n        return a > b ? a : b;\\n    }\\n\\n    /**\\n     * @dev Returns the smallest of two numbers.\\n     */\\n    function min(uint256 a, uint256 b) internal pure returns (uint256) {\\n        return a < b ? a : b;\\n    }\\n\\n    /**\\n     * @dev Returns the average of two numbers. The result is rounded towards\\n     * zero.\\n     */\\n    function average(uint256 a, uint256 b) internal pure returns (uint256) {\\n        // (a + b) / 2 can overflow.\\n        return (a & b) + (a ^ b) / 2;\\n    }\\n\\n    /**\\n     * @dev Returns the ceiling of the division of two numbers.\\n     *\\n     * This differs from standard division with `/` in that it rounds up instead\\n     * of rounding down.\\n     */\\n    function ceilDiv(uint256 a, uint256 b) internal pure returns (uint256) {\\n        // (a + b - 1) / b can overflow on addition, so we distribute.\\n        return a == 0 ? 0 : (a - 1) / b + 1;\\n    }\\n\\n    /**\\n     * @notice Calculates floor(x * y / denominator) with full precision. Throws if result overflows a uint256 or denominator == 0\\n     * @dev Original credit to Remco Bloemen under MIT license (https://xn--2-umb.com/21/muldiv)\\n     * with further edits by Uniswap Labs also under MIT license.\\n     */\\n    function mulDiv(uint256 x, uint256 y, uint256 denominator) internal pure returns (uint256 result) {\\n        unchecked {\\n            // 512-bit multiply [prod1 prod0] = x * y. Compute the product mod 2^256 and mod 2^256 - 1, then use\\n            // use the Chinese Remainder Theorem to reconstruct the 512 bit result. The result is stored in two 256\\n            // variables such that product = prod1 * 2^256 + prod0.\\n            uint256 prod0; // Least significant 256 bits of the product\\n            uint256 prod1; // Most significant 256 bits of the product\\n            assembly {\\n                let mm := mulmod(x, y, not(0))\\n                prod0 := mul(x, y)\\n                prod1 := sub(sub(mm, prod0), lt(mm, prod0))\\n            }\\n\\n            // Handle non-overflow cases, 256 by 256 division.\\n            if (prod1 == 0) {\\n                // Solidity will revert if denominator == 0, unlike the div opcode on its own.\\n                // The surrounding unchecked block does not change this fact.\\n                // See https://docs.soliditylang.org/en/latest/control-structures.html#checked-or-unchecked-arithmetic.\\n                return prod0 / denominator;\\n            }\\n\\n            // Make sure the result is less than 2^256. Also prevents denominator == 0.\\n            require(denominator > prod1, \\\"Math: mulDiv overflow\\\");\\n\\n            ///////////////////////////////////////////////\\n            // 512 by 256 division.\\n            ///////////////////////////////////////////////\\n\\n            // Make division exact by subtracting the remainder from [prod1 prod0].\\n            uint256 remainder;\\n            assembly {\\n                // Compute remainder using mulmod.\\n                remainder := mulmod(x, y, denominator)\\n\\n                // Subtract 256 bit number from 512 bit number.\\n                prod1 := sub(prod1, gt(remainder, prod0))\\n                prod0 := sub(prod0, remainder)\\n            }\\n\\n            // Factor powers of two out of denominator and compute largest power of two divisor of denominator. Always >= 1.\\n            // See https://cs.stackexchange.com/q/138556/92363.\\n\\n            // Does not overflow because the denominator cannot be zero at this stage in the function.\\n            uint256 twos = denominator & (~denominator + 1);\\n            assembly {\\n                // Divide denominator by twos.\\n                denominator := div(denominator, twos)\\n\\n                // Divide [prod1 prod0] by twos.\\n                prod0 := div(prod0, twos)\\n\\n                // Flip twos such that it is 2^256 / twos. If twos is zero, then it becomes one.\\n                twos := add(div(sub(0, twos), twos), 1)\\n            }\\n\\n            // Shift in bits from prod1 into prod0.\\n            prod0 |= prod1 * twos;\\n\\n            // Invert denominator mod 2^256. Now that denominator is an odd number, it has an inverse modulo 2^256 such\\n            // that denominator * inv = 1 mod 2^256. Compute the inverse by starting with a seed that is correct for\\n            // four bits. That is, denominator * inv = 1 mod 2^4.\\n            uint256 inverse = (3 * denominator) ^ 2;\\n\\n            // Use the Newton-Raphson iteration to improve the precision. Thanks to Hensel's lifting lemma, this also works\\n            // in modular arithmetic, doubling the correct bits in each step.\\n            inverse *= 2 - denominator * inverse; // inverse mod 2^8\\n            inverse *= 2 - denominator * inverse; // inverse mod 2^16\\n            inverse *= 2 - denominator * inverse; // inverse mod 2^32\\n            inverse *= 2 - denominator * inverse; // inverse mod 2^64\\n            inverse *= 2 - denominator * inverse; // inverse mod 2^128\\n            inverse *= 2 - denominator * inverse; // inverse mod 2^256\\n\\n            // Because the division is now exact we can divide by multiplying with the modular inverse of denominator.\\n            // This will give us the correct result modulo 2^256. Since the preconditions guarantee that the outcome is\\n            // less than 2^256, this is the final result. We don't need to compute the high bits of the result and prod1\\n            // is no longer required.\\n            result = prod0 * inverse;\\n            return result;\\n        }\\n    }\\n\\n    /**\\n     * @notice Calculates x * y / denominator with full precision, following the selected rounding direction.\\n     */\\n    function mulDiv(uint256 x, uint256 y, uint256 denominator, Rounding rounding) internal pure returns (uint256) {\\n        uint256 result = mulDiv(x, y, denominator);\\n        if (rounding == Rounding.Up && mulmod(x, y, denominator) > 0) {\\n            result += 1;\\n        }\\n        return result;\\n    }\\n\\n    /**\\n     * @dev Returns the square root of a number. If the number is not a perfect square, the value is rounded down.\\n     *\\n     * Inspired by Henry S. Warren, Jr.'s \\\"Hacker's Delight\\\" (Chapter 11).\\n     */\\n    function sqrt(uint256 a) internal pure returns (uint256) {\\n        if (a == 0) {\\n            return 0;\\n        }\\n\\n        // For our first guess, we get the biggest power of 2 which is smaller than the square root of the target.\\n        //\\n        // We know that the \\\"msb\\\" (most significant bit) of our target number `a` is a power of 2 such that we have\\n        // `msb(a) <= a < 2*msb(a)`. This value can be written `msb(a)=2**k` with `k=log2(a)`.\\n        //\\n        // This can be rewritten `2**log2(a) <= a < 2**(log2(a) + 1)`\\n        // \\u2192 `sqrt(2**k) <= sqrt(a) < sqrt(2**(k+1))`\\n        // \\u2192 `2**(k/2) <= sqrt(a) < 2**((k+1)/2) <= 2**(k/2 + 1)`\\n        //\\n        // Consequently, `2**(log2(a) / 2)` is a good first approximation of `sqrt(a)` with at least 1 correct bit.\\n        uint256 result = 1 << (log2(a) >> 1);\\n\\n        // At this point `result` is an estimation with one bit of precision. We know the true value is a uint128,\\n        // since it is the square root of a uint256. Newton's method converges quadratically (precision doubles at\\n        // every iteration). We thus need at most 7 iteration to turn our partial result with one bit of precision\\n        // into the expected uint128 result.\\n        unchecked {\\n            result = (result + a / result) >> 1;\\n            result = (result + a / result) >> 1;\\n            result = (result + a / result) >> 1;\\n            result = (result + a / result) >> 1;\\n            result = (result + a / result) >> 1;\\n            result = (result + a / result) >> 1;\\n            result = (result + a / result) >> 1;\\n            return min(result, a / result);\\n        }\\n    }\\n\\n    /**\\n     * @notice Calculates sqrt(a), following the selected rounding direction.\\n     */\\n    function sqrt(uint256 a, Rounding rounding) internal pure returns (uint256) {\\n        unchecked {\\n            uint256 result = sqrt(a);\\n            return result + (rounding == Rounding.Up && result * result < a ? 1 : 0);\\n        }\\n    }\\n\\n    /**\\n     * @dev Return the log in base 2, rounded down, of a positive value.\\n     * Returns 0 if given 0.\\n     */\\n    function log2(uint256 value) internal pure returns (uint256) {\\n        uint256 result = 0;\\n        unchecked {\\n            if (value >> 128 > 0) {\\n                value >>= 128;\\n                result += 128;\\n            }\\n            if (value >> 64 > 0) {\\n                value >>= 64;\\n                result += 64;\\n            }\\n            if (value >> 32 > 0) {\\n                value >>= 32;\\n                result += 32;\\n            }\\n            if (value >> 16 > 0) {\\n                value >>= 16;\\n                result += 16;\\n            }\\n            if (value >> 8 > 0) {\\n                value >>= 8;\\n                result += 8;\\n            }\\n            if (value >> 4 > 0) {\\n                value >>= 4;\\n                result += 4;\\n            }\\n            if (value >> 2 > 0) {\\n                value >>= 2;\\n                result += 2;\\n            }\\n            if (value >> 1 > 0) {\\n                result += 1;\\n            }\\n        }\\n        return result;\\n    }\\n\\n    /**\\n     * @dev Return the log in base 2, following the selected rounding direction, of a positive value.\\n     * Returns 0 if given 0.\\n     */\\n    function log2(uint256 value, Rounding rounding) internal pure returns (uint256) {\\n        unchecked {\\n            uint256 result = log2(value);\\n            return result + (rounding == Rounding.Up && 1 << result < value ? 1 : 0);\\n        }\\n    }\\n\\n    /**\\n     * @dev Return the log in base 10, rounded down, of a positive value.\\n     * Returns 0 if given 0.\\n     */\\n    function log10(uint256 value) internal pure returns (uint256) {\\n        uint256 result = 0;\\n        unchecked {\\n            if (value >= 10 ** 64) {\\n                value /= 10 ** 64;\\n                result += 64;\\n            }\\n            if (value >= 10 ** 32) {\\n                value /= 10 ** 32;\\n                result += 32;\\n            }\\n            if (value >= 10 ** 16) {\\n                value /= 10 ** 16;\\n                result += 16;\\n            }\\n            if (value >= 10 ** 8) {\\n                value /= 10 ** 8;\\n                result += 8;\\n            }\\n            if (value >= 10 ** 4) {\\n                value /= 10 ** 4;\\n                result += 4;\\n            }\\n            if (value >= 10 ** 2) {\\n                value /= 10 ** 2;\\n                result += 2;\\n            }\\n            if (value >= 10 ** 1) {\\n                result += 1;\\n            }\\n        }\\n        return result;\\n    }\\n\\n    /**\\n     * @dev Return the log in base 10, following the selected rounding direction, of a positive value.\\n     * Returns 0 if given 0.\\n     */\\n    function log10(uint256 value, Rounding rounding) internal pure returns (uint256) {\\n        unchecked {\\n            uint256 result = log10(value);\\n            return result + (rounding == Rounding.Up && 10 ** result < value ? 1 : 0);\\n        }\\n    }\\n\\n    /**\\n     * @dev Return the log in base 256, rounded down, of a positive value.\\n     * Returns 0 if given 0.\\n     *\\n     * Adding one to the result gives the number of pairs of hex symbols needed to represent `value` as a hex string.\\n     */\\n    function log256(uint256 value) internal pure returns (uint256) {\\n        uint256 result = 0;\\n        unchecked {\\n            if (value >> 128 > 0) {\\n                value >>= 128;\\n                result += 16;\\n            }\\n            if (value >> 64 > 0) {\\n                value >>= 64;\\n                result += 8;\\n            }\\n            if (value >> 32 > 0) {\\n                value >>= 32;\\n                result += 4;\\n            }\\n            if (value >> 16 > 0) {\\n                value >>= 16;\\n                result += 2;\\n            }\\n            if (value >> 8 > 0) {\\n                result += 1;\\n            }\\n        }\\n        return result;\\n    }\\n\\n    /**\\n     * @dev Return the log in base 256, following the selected rounding direction, of a positive value.\\n     * Returns 0 if given 0.\\n     */\\n    function log256(uint256 value, Rounding rounding) internal pure returns (uint256) {\\n        unchecked {\\n            uint256 result = log256(value);\\n            return result + (rounding == Rounding.Up && 1 << (result << 3) < value ? 1 : 0);\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0xe4455ac1eb7fc497bb7402579e7b4d64d928b846fce7d2b6fde06d366f21c2b3\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/math/SignedMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.8.0) (utils/math/SignedMath.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Standard signed math utilities missing in the Solidity language.\\n */\\nlibrary SignedMath {\\n    /**\\n     * @dev Returns the largest of two signed numbers.\\n     */\\n    function max(int256 a, int256 b) internal pure returns (int256) {\\n        return a > b ? a : b;\\n    }\\n\\n    /**\\n     * @dev Returns the smallest of two signed numbers.\\n     */\\n    function min(int256 a, int256 b) internal pure returns (int256) {\\n        return a < b ? a : b;\\n    }\\n\\n    /**\\n     * @dev Returns the average of two signed numbers without overflow.\\n     * The result is rounded towards zero.\\n     */\\n    function average(int256 a, int256 b) internal pure returns (int256) {\\n        // Formula from the book \\\"Hacker's Delight\\\"\\n        int256 x = (a & b) + ((a ^ b) >> 1);\\n        return x + (int256(uint256(x) >> 255) & (a ^ b));\\n    }\\n\\n    /**\\n     * @dev Returns the absolute unsigned value of a signed value.\\n     */\\n    function abs(int256 n) internal pure returns (uint256) {\\n        unchecked {\\n            // must be unchecked in order to support `n = type(int256).min`\\n            return uint256(n >= 0 ? n : -n);\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0xf92515413956f529d95977adc9b0567d583c6203fc31ab1c23824c35187e3ddc\",\"license\":\"MIT\"},\"src/interfaces/IERC721Drop.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.13;\\n\\nimport \\\"./IMetadataRenderer.sol\\\";\\n\\ninterface IERC721Drop {\\n    // Access errors\\n\\n    /// @notice Only admin can access this function\\n    error Access_OnlyAdmin();\\n    /// @notice Missing the given role or admin access\\n    error Access_MissingRoleOrAdmin(bytes32 role);\\n    /// @notice Withdraw is not allowed by this user\\n    error Access_WithdrawNotAllowed();\\n    /// @notice Cannot withdraw funds due to ETH send failure.\\n    error Withdraw_FundsSendFailure();\\n    /// @notice Mint fee send failure\\n    error MintFee_FundsSendFailure();\\n\\n    /// @notice Call to external metadata renderer failed.\\n    error ExternalMetadataRenderer_CallFailed();\\n\\n    // Sale/Purchase errors\\n    /// @notice Sale is inactive\\n    error Sale_Inactive();\\n    /// @notice Presale is inactive\\n    error Presale_Inactive();\\n    /// @notice Presale merkle root is invalid\\n    error Presale_MerkleNotApproved();\\n    /// @notice Wrong price for purchase\\n    error Purchase_WrongPrice(uint256 correctPrice);\\n    /// @notice NFT sold out\\n    error Mint_SoldOut();\\n    /// @notice Too many purchase for address\\n    error Purchase_TooManyForAddress();\\n    /// @notice Too many presale for address\\n    error Presale_TooManyForAddress();\\n\\n    // Admin errors\\n    /// @notice Royalty percentage too high\\n    error Setup_RoyaltyPercentageTooHigh(uint16 maxRoyaltyBPS);\\n    /// @notice Invalid admin upgrade address\\n    error Admin_InvalidUpgradeAddress(address proposedAddress);\\n    /// @notice Unable to finalize an edition not marked as open (size set to uint64_max_value)\\n    error Admin_UnableToFinalizeNotOpenEdition();\\n\\n    /// @notice Event emitted for mint fee payout\\n    /// @param mintFeeAmount amount of the mint fee\\n    /// @param mintFeeRecipient recipient of the mint fee\\n    /// @param success if the payout succeeded\\n    event MintFeePayout(uint256 mintFeeAmount, address mintFeeRecipient, bool success);\\n\\n    /// @notice Event emitted for each sale\\n    /// @param to address sale was made to\\n    /// @param quantity quantity of the minted nfts\\n    /// @param pricePerToken price for each token\\n    /// @param firstPurchasedTokenId first purchased token ID (to get range add to quantity for max)\\n    event Sale(\\n        address indexed to,\\n        uint256 indexed quantity,\\n        uint256 indexed pricePerToken,\\n        uint256 firstPurchasedTokenId\\n    );\\n\\n    /// @notice Event emitted for each sale\\n    /// @param sender address sale was made to\\n    /// @param tokenContract address of the token contract\\n    /// @param tokenId first purchased token ID (to get range add to quantity for max)\\n    /// @param quantity quantity of the minted nfts\\n    /// @param comment caller provided comment\\n    event MintComment(\\n        address indexed sender,\\n        address indexed tokenContract,\\n        uint256 indexed tokenId,\\n        uint256 quantity,\\n        string comment\\n    );\\n\\n    /// @notice Sales configuration has been changed\\n    /// @dev To access new sales configuration, use getter function.\\n    /// @param changedBy Changed by user\\n    event SalesConfigChanged(address indexed changedBy);\\n\\n    /// @notice Event emitted when the funds recipient is changed\\n    /// @param newAddress new address for the funds recipient\\n    /// @param changedBy address that the recipient is changed by\\n    event FundsRecipientChanged(address indexed newAddress, address indexed changedBy);\\n\\n    /// @notice Event emitted when the funds are withdrawn from the minting contract\\n    /// @param withdrawnBy address that issued the withdraw\\n    /// @param withdrawnTo address that the funds were withdrawn to\\n    /// @param amount amount that was withdrawn\\n    /// @param feeRecipient user getting withdraw fee (if any)\\n    /// @param feeAmount amount of the fee getting sent (if any)\\n    event FundsWithdrawn(\\n        address indexed withdrawnBy,\\n        address indexed withdrawnTo,\\n        uint256 amount,\\n        address feeRecipient,\\n        uint256 feeAmount\\n    );\\n\\n    /// @notice Event emitted when an open mint is finalized and further minting is closed forever on the contract.\\n    /// @param sender address sending close mint\\n    /// @param numberOfMints number of mints the contract is finalized at\\n    event OpenMintFinalized(address indexed sender, uint256 numberOfMints);\\n\\n    /// @notice Event emitted when metadata renderer is updated.\\n    /// @param sender address of the updater\\n    /// @param renderer new metadata renderer address\\n    event UpdatedMetadataRenderer(address sender, IMetadataRenderer renderer);\\n\\n    /// @notice Admin function to update the sales configuration settings\\n    /// @param publicSalePrice public sale price in ether\\n    /// @param maxSalePurchasePerAddress Max # of purchases (public) per address allowed\\n    /// @param publicSaleStart unix timestamp when the public sale starts\\n    /// @param publicSaleEnd unix timestamp when the public sale ends (set to 0 to disable)\\n    /// @param presaleStart unix timestamp when the presale starts\\n    /// @param presaleEnd unix timestamp when the presale ends\\n    /// @param presaleMerkleRoot merkle root for the presale information\\n    function setSaleConfiguration(\\n        uint104 publicSalePrice,\\n        uint32 maxSalePurchasePerAddress,\\n        uint64 publicSaleStart,\\n        uint64 publicSaleEnd,\\n        uint64 presaleStart,\\n        uint64 presaleEnd,\\n        bytes32 presaleMerkleRoot\\n    ) external;\\n\\n    /// @notice General configuration for NFT Minting and bookkeeping\\n    struct Configuration {\\n        /// @dev Metadata renderer (uint160)\\n        IMetadataRenderer metadataRenderer;\\n        /// @dev Total size of edition that can be minted (uint160+64 = 224)\\n        uint64 editionSize;\\n        /// @dev Royalty amount in bps (uint224+16 = 240)\\n        uint16 royaltyBPS;\\n        /// @dev Funds recipient for sale (new slot, uint160)\\n        address payable fundsRecipient;\\n    }\\n\\n    /// @notice Sales states and configuration\\n    /// @dev Uses 3 storage slots\\n    struct SalesConfiguration {\\n        /// @dev Public sale price (max ether value > 1000 ether with this value)\\n        uint104 publicSalePrice;\\n        /// @notice Purchase mint limit per address (if set to 0 === unlimited mints)\\n        /// @dev Max purchase number per txn (90+32 = 122)\\n        uint32 maxSalePurchasePerAddress;\\n        /// @dev uint64 type allows for dates into 292 billion years\\n        /// @notice Public sale start timestamp (136+64 = 186)\\n        uint64 publicSaleStart;\\n        /// @notice Public sale end timestamp (186+64 = 250)\\n        uint64 publicSaleEnd;\\n        /// @notice Presale start timestamp\\n        /// @dev new storage slot\\n        uint64 presaleStart;\\n        /// @notice Presale end timestamp\\n        uint64 presaleEnd;\\n        /// @notice Presale merkle root\\n        bytes32 presaleMerkleRoot;\\n    }\\n\\n    /// @notice Return value for sales details to use with front-ends\\n    struct SaleDetails {\\n        // Synthesized status variables for sale and presale\\n        bool publicSaleActive;\\n        bool presaleActive;\\n        // Price for public sale\\n        uint256 publicSalePrice;\\n        // Timed sale actions for public sale\\n        uint64 publicSaleStart;\\n        uint64 publicSaleEnd;\\n        // Timed sale actions for presale\\n        uint64 presaleStart;\\n        uint64 presaleEnd;\\n        // Merkle root (includes address, quantity, and price data for each entry)\\n        bytes32 presaleMerkleRoot;\\n        // Limit public sale to a specific number of mints per wallet\\n        uint256 maxSalePurchasePerAddress;\\n        // Information about the rest of the supply\\n        // Total that have been minted\\n        uint256 totalMinted;\\n        // The total supply available\\n        uint256 maxSupply;\\n    }\\n\\n    /// @notice Return type of specific mint counts and details per address\\n    struct AddressMintDetails {\\n        /// Number of total mints from the given address\\n        uint256 totalMints;\\n        /// Number of presale mints from the given address\\n        uint256 presaleMints;\\n        /// Number of public mints from the given address\\n        uint256 publicMints;\\n    }\\n\\n    /// @notice External purchase function (payable in eth)\\n    /// @param quantity to purchase\\n    /// @return first minted token ID\\n    function purchase(uint256 quantity) external payable returns (uint256);\\n\\n    /// @notice External purchase presale function (takes a merkle proof and matches to root) (payable in eth)\\n    /// @param quantity to purchase\\n    /// @param maxQuantity can purchase (verified by merkle root)\\n    /// @param pricePerToken price per token allowed (verified by merkle root)\\n    /// @param merkleProof input for merkle proof leaf verified by merkle root\\n    /// @return first minted token ID\\n    function purchasePresale(\\n        uint256 quantity,\\n        uint256 maxQuantity,\\n        uint256 pricePerToken,\\n        bytes32[] memory merkleProof\\n    ) external payable returns (uint256);\\n\\n    /// @notice Function to return the global sales details for the given drop\\n    function saleDetails() external view returns (SaleDetails memory);\\n\\n    /// @notice Function to return the specific sales details for a given address\\n    /// @param minter address for minter to return mint information for\\n    function mintedPerAddress(address minter) external view returns (AddressMintDetails memory);\\n\\n    /// @notice This is the opensea/public owner setting that can be set by the contract admin\\n    function owner() external view returns (address);\\n\\n    /// @notice Update the metadata renderer\\n    /// @param newRenderer new address for renderer\\n    /// @param setupRenderer data to call to bootstrap data for the new renderer (optional)\\n    function setMetadataRenderer(IMetadataRenderer newRenderer, bytes memory setupRenderer) external;\\n\\n    /// @notice This is an admin mint function to mint a quantity to a specific address\\n    /// @param to address to mint to\\n    /// @param quantity quantity to mint\\n    /// @return the id of the first minted NFT\\n    function adminMint(address to, uint256 quantity) external returns (uint256);\\n\\n    /// @notice This is an admin mint function to mint a single nft each to a list of addresses\\n    /// @param to list of addresses to mint an NFT each to\\n    /// @return the id of the first minted NFT\\n    function adminMintAirdrop(address[] memory to) external returns (uint256);\\n\\n    /// @dev Getter for admin role associated with the contract to handle metadata\\n    /// @return boolean if address is admin\\n    function isAdmin(address user) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x60b6f6ddcfec7ebc28835956e0f6dedcf7616e97edd0034ed66e0b0183312321\",\"license\":\"MIT\"},\"src/interfaces/IMetadataRenderer.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.13;\\n\\ninterface IMetadataRenderer {\\n    function tokenURI(uint256) external view returns (string memory);\\n\\n    function contractURI() external view returns (string memory);\\n\\n    function initializeWithData(bytes memory initData) external;\\n}\\n\",\"keccak256\":\"0xd73a5fcff6eb14cd9b0a1449fb611d4598134abe380c83cb62471f763eb6dd27\",\"license\":\"MIT\"},\"src/metadata/DropMetadataRenderer.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.13;\\n\\nimport {Strings} from \\\"@openzeppelin/contracts/utils/Strings.sol\\\";\\nimport {IMetadataRenderer} from \\\"../interfaces/IMetadataRenderer.sol\\\";\\nimport {MetadataRenderAdminCheck} from \\\"./MetadataRenderAdminCheck.sol\\\";\\n\\n/// @notice Drops metadata system\\ncontract DropMetadataRenderer is IMetadataRenderer, MetadataRenderAdminCheck {\\n    error MetadataFrozen();\\n\\n    /// Event to mark updated metadata information\\n    event MetadataUpdated(\\n        address indexed target,\\n        string metadataBase,\\n        string metadataExtension,\\n        string contractURI,\\n        uint256 freezeAt\\n    );\\n\\n    /// @notice Hash to mark updated provenance hash\\n    event ProvenanceHashUpdated(address indexed target, bytes32 provenanceHash);\\n\\n    /// @notice Struct to store metadata info and update data\\n    struct MetadataURIInfo {\\n        string base;\\n        string extension;\\n        string contractURI;\\n        uint256 freezeAt;\\n    }\\n\\n    /// @notice NFT metadata by contract\\n    mapping(address => MetadataURIInfo) public metadataBaseByContract;\\n\\n    /// @notice Optional provenance hashes for NFT metadata by contract\\n    mapping(address => bytes32) public provenanceHashes;\\n\\n    /// @notice Standard init for drop metadata from root drop contract\\n    /// @param data passed in for initialization\\n    function initializeWithData(bytes memory data) external {\\n        // data format: string baseURI, string newContractURI\\n        (string memory initialBaseURI, string memory initialContractURI) = abi.decode(data, (string, string));\\n        _updateMetadataDetails(msg.sender, initialBaseURI, \\\"\\\", initialContractURI, 0);\\n    }\\n\\n    /// @notice Update the provenance hash (optional) for a given nft\\n    /// @param target target address to update\\n    /// @param provenanceHash provenance hash to set\\n    function updateProvenanceHash(address target, bytes32 provenanceHash) external requireSenderAdmin(target) {\\n        provenanceHashes[target] = provenanceHash;\\n        emit ProvenanceHashUpdated(target, provenanceHash);\\n    }\\n\\n    /// @notice Update metadata base URI and contract URI\\n    /// @param baseUri new base URI\\n    /// @param newContractUri new contract URI (can be an empty string)\\n    function updateMetadataBase(\\n        address target,\\n        string memory baseUri,\\n        string memory newContractUri\\n    ) external requireSenderAdmin(target) {\\n        _updateMetadataDetails(target, baseUri, \\\"\\\", newContractUri, 0);\\n    }\\n\\n    /// @notice Update metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing details\\n    /// @param target target contract to update metadata for\\n    /// @param metadataBase new base URI to update metadata with\\n    /// @param metadataExtension new extension to append to base metadata URI\\n    /// @param freezeAt time to freeze the contract metadata at (set to 0 to disable)\\n    function updateMetadataBaseWithDetails(\\n        address target,\\n        string memory metadataBase,\\n        string memory metadataExtension,\\n        string memory newContractURI,\\n        uint256 freezeAt\\n    ) external requireSenderAdmin(target) {\\n        _updateMetadataDetails(target, metadataBase, metadataExtension, newContractURI, freezeAt);\\n    }\\n\\n    /// @notice Internal metadata update function\\n    /// @param metadataBase Base URI to update metadata for\\n    /// @param metadataExtension Extension URI to update metadata for\\n    /// @param freezeAt timestamp to freeze metadata (set to 0 to disable freezing)\\n    function _updateMetadataDetails(\\n        address target,\\n        string memory metadataBase,\\n        string memory metadataExtension,\\n        string memory newContractURI,\\n        uint256 freezeAt\\n    ) internal {\\n        if (freezeAt != 0 && freezeAt > block.timestamp) {\\n            revert MetadataFrozen();\\n        }\\n\\n        metadataBaseByContract[target] = MetadataURIInfo({\\n            base: metadataBase,\\n            extension: metadataExtension,\\n            contractURI: newContractURI,\\n            freezeAt: freezeAt\\n        });\\n        emit MetadataUpdated({\\n            target: target,\\n            metadataBase: metadataBase,\\n            metadataExtension: metadataExtension,\\n            contractURI: newContractURI,\\n            freezeAt: freezeAt\\n        });\\n    }\\n\\n    /// @notice A contract URI for the given drop contract\\n    /// @dev reverts if a contract uri is not provided\\n    /// @return contract uri for the contract metadata\\n    function contractURI() external view override returns (string memory) {\\n        string memory uri = metadataBaseByContract[msg.sender].contractURI;\\n        if (bytes(uri).length == 0) revert();\\n        return uri;\\n    }\\n\\n    /// @notice A token URI for the given drops contract\\n    /// @dev reverts if a contract uri is not set\\n    /// @return token URI for the given token ID and contract (set by msg.sender)\\n    function tokenURI(uint256 tokenId) external view override returns (string memory) {\\n        MetadataURIInfo memory info = metadataBaseByContract[msg.sender];\\n\\n        if (bytes(info.base).length == 0) revert();\\n\\n        return string(abi.encodePacked(info.base, Strings.toString(tokenId), info.extension));\\n    }\\n}\\n\",\"keccak256\":\"0x3da0bfc753277926eac0f4ff49937e4a8b829617d3a93bc3295fb477bbd575eb\",\"license\":\"MIT\"},\"src/metadata/MetadataRenderAdminCheck.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.13;\\n\\nimport {IERC721Drop} from \\\"../interfaces/IERC721Drop.sol\\\";\\n\\ncontract MetadataRenderAdminCheck {\\n    error Access_OnlyAdmin();\\n\\n    /// @notice Modifier to require the sender to be an admin\\n    /// @param target address that the user wants to modify\\n    modifier requireSenderAdmin(address target) {\\n        if (target != msg.sender && !IERC721Drop(target).isAdmin(msg.sender)) {\\n            revert Access_OnlyAdmin();\\n        }\\n\\n        _;\\n    }\\n}\\n\",\"keccak256\":\"0x36c375053f36963334aca4f1a0021a9347daade1298da2eb6244517db7a014e9\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50611117806100206000396000f3fe608060405234801561001057600080fd5b50600436106100885760003560e01c8063c87b56dd1161005b578063c87b56dd146100f4578063cc1306db14610114578063de5af49b14610127578063e8a3d4851461015557600080fd5b806342495a951461008d578063856a7ffa146100a257806391074f98146100b5578063af806d56146100e1575b600080fd5b6100a061009b366004610c21565b61015d565b005b6100a06100b0366004610cc2565b61020f565b6100c86100c3366004610d13565b61024c565b6040516100d89493929190610d7e565b60405180910390f35b6100a06100ef366004610dc9565b61040c565b610107610102366004610e3d565b6104cc565b6040516100d89190610e56565b6100a0610122366004610e69565b6106f5565b610147610135366004610d13565b60016020526000908152604090205481565b6040519081526020016100d8565b6101076107ec565b846001600160a01b03811633148015906101dc5750604051630935e01b60e21b81523360048201526001600160a01b038216906324d7806c90602401602060405180830381865afa1580156101b6573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101da9190610e93565b155b156101fa576040516302bd6bd160e01b815260040160405180910390fd5b61020786868686866108a1565b505050505050565b600080828060200190518101906102269190610efa565b915091506102473383604051806020016040528060008152508460006108a1565b505050565b60006020819052908152604090208054819061026790610f5e565b80601f016020809104026020016040519081016040528092919081815260200182805461029390610f5e565b80156102e05780601f106102b5576101008083540402835291602001916102e0565b820191906000526020600020905b8154815290600101906020018083116102c357829003601f168201915b5050505050908060010180546102f590610f5e565b80601f016020809104026020016040519081016040528092919081815260200182805461032190610f5e565b801561036e5780601f106103435761010080835404028352916020019161036e565b820191906000526020600020905b81548152906001019060200180831161035157829003601f168201915b50505050509080600201805461038390610f5e565b80601f01602080910402602001604051908101604052809291908181526020018280546103af90610f5e565b80156103fc5780601f106103d1576101008083540402835291602001916103fc565b820191906000526020600020905b8154815290600101906020018083116103df57829003601f168201915b5050505050908060030154905084565b826001600160a01b038116331480159061048b5750604051630935e01b60e21b81523360048201526001600160a01b038216906324d7806c90602401602060405180830381865afa158015610465573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104899190610e93565b155b156104a9576040516302bd6bd160e01b815260040160405180910390fd5b6104c68484604051806020016040528060008152508560006108a1565b50505050565b336000908152602081905260408082208151608081019092528054606093929190829082906104fa90610f5e565b80601f016020809104026020016040519081016040528092919081815260200182805461052690610f5e565b80156105735780601f1061054857610100808354040283529160200191610573565b820191906000526020600020905b81548152906001019060200180831161055657829003601f168201915b5050505050815260200160018201805461058c90610f5e565b80601f01602080910402602001604051908101604052809291908181526020018280546105b890610f5e565b80156106055780601f106105da57610100808354040283529160200191610605565b820191906000526020600020905b8154815290600101906020018083116105e857829003601f168201915b5050505050815260200160028201805461061e90610f5e565b80601f016020809104026020016040519081016040528092919081815260200182805461064a90610f5e565b80156106975780601f1061066c57610100808354040283529160200191610697565b820191906000526020600020905b81548152906001019060200180831161067a57829003601f168201915b5050505050815260200160038201548152505090508060000151516000036106be57600080fd5b80516106c9846109b3565b6020808401516040516106de94939201610f98565b604051602081830303815290604052915050919050565b816001600160a01b03811633148015906107745750604051630935e01b60e21b81523360048201526001600160a01b038216906324d7806c90602401602060405180830381865afa15801561074e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906107729190610e93565b155b15610792576040516302bd6bd160e01b815260040160405180910390fd5b6001600160a01b03831660008181526001602052604090819020849055517ff2e078c4022bfd6c56addd06540a4a5dd4252b6b2c424b6840c184063f48fc27906107df9085815260200190565b60405180910390a2505050565b3360009081526020819052604081206002018054606092919061080e90610f5e565b80601f016020809104026020016040519081016040528092919081815260200182805461083a90610f5e565b80156108875780601f1061085c57610100808354040283529160200191610887565b820191906000526020600020905b81548152906001019060200180831161086a57829003601f168201915b50505050509050805160000361089c57600080fd5b919050565b80158015906108af57504281115b156108e6576040517feef043fe00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b604080516080810182528581526020808201869052818301859052606082018490526001600160a01b038816600090815290819052919091208151819061092d9082611021565b50602082015160018201906109429082611021565b50604082015160028201906109579082611021565b5060608201518160030155905050846001600160a01b03167f5eff125d5659803f33dbda215d6e8bfe0a404fd213a9ecb5e61973ee16cb17e7858585856040516109a49493929190610d7e565b60405180910390a25050505050565b606060006109c083610a53565b600101905060008167ffffffffffffffff8111156109e0576109e0610b4d565b6040519080825280601f01601f191660200182016040528015610a0a576020820181803683370190505b5090508181016020015b600019017f3031323334353637383961626364656600000000000000000000000000000000600a86061a8153600a8504945084610a1457509392505050565b6000807a184f03e93ff9f4daa797ed6e38ed64bf6a1f0100000000000000008310610a9c577a184f03e93ff9f4daa797ed6e38ed64bf6a1f010000000000000000830492506040015b6d04ee2d6d415b85acef81000000008310610ac8576d04ee2d6d415b85acef8100000000830492506020015b662386f26fc100008310610ae657662386f26fc10000830492506010015b6305f5e1008310610afe576305f5e100830492506008015b6127108310610b1257612710830492506004015b60648310610b24576064830492506002015b600a8310610b30576001015b92915050565b80356001600160a01b038116811461089c57600080fd5b634e487b7160e01b600052604160045260246000fd5b604051601f8201601f1916810167ffffffffffffffff81118282101715610b8c57610b8c610b4d565b604052919050565b600067ffffffffffffffff821115610bae57610bae610b4d565b50601f01601f191660200190565b6000610bcf610bca84610b94565b610b63565b9050828152838383011115610be357600080fd5b828260208301376000602084830101529392505050565b600082601f830112610c0b57600080fd5b610c1a83833560208501610bbc565b9392505050565b600080600080600060a08688031215610c3957600080fd5b610c4286610b36565b9450602086013567ffffffffffffffff80821115610c5f57600080fd5b610c6b89838a01610bfa565b95506040880135915080821115610c8157600080fd5b610c8d89838a01610bfa565b94506060880135915080821115610ca357600080fd5b50610cb088828901610bfa565b95989497509295608001359392505050565b600060208284031215610cd457600080fd5b813567ffffffffffffffff811115610ceb57600080fd5b8201601f81018413610cfc57600080fd5b610d0b84823560208401610bbc565b949350505050565b600060208284031215610d2557600080fd5b610c1a82610b36565b60005b83811015610d49578181015183820152602001610d31565b50506000910152565b60008151808452610d6a816020860160208601610d2e565b601f01601f19169290920160200192915050565b608081526000610d916080830187610d52565b8281036020840152610da38187610d52565b90508281036040840152610db78186610d52565b91505082606083015295945050505050565b600080600060608486031215610dde57600080fd5b610de784610b36565b9250602084013567ffffffffffffffff80821115610e0457600080fd5b610e1087838801610bfa565b93506040860135915080821115610e2657600080fd5b50610e3386828701610bfa565b9150509250925092565b600060208284031215610e4f57600080fd5b5035919050565b602081526000610c1a6020830184610d52565b60008060408385031215610e7c57600080fd5b610e8583610b36565b946020939093013593505050565b600060208284031215610ea557600080fd5b81518015158114610c1a57600080fd5b600082601f830112610ec657600080fd5b8151610ed4610bca82610b94565b818152846020838601011115610ee957600080fd5b610d0b826020830160208701610d2e565b60008060408385031215610f0d57600080fd5b825167ffffffffffffffff80821115610f2557600080fd5b610f3186838701610eb5565b93506020850151915080821115610f4757600080fd5b50610f5485828601610eb5565b9150509250929050565b600181811c90821680610f7257607f821691505b602082108103610f9257634e487b7160e01b600052602260045260246000fd5b50919050565b60008451610faa818460208901610d2e565b845190830190610fbe818360208901610d2e565b8451910190610fd1818360208801610d2e565b0195945050505050565b601f82111561024757600081815260208120601f850160051c810160208610156110025750805b601f850160051c820191505b818110156102075782815560010161100e565b815167ffffffffffffffff81111561103b5761103b610b4d565b61104f816110498454610f5e565b84610fdb565b602080601f831160018114611084576000841561106c5750858301515b600019600386901b1c1916600185901b178555610207565b600085815260208120601f198616915b828110156110b357888601518255948401946001909101908401611094565b50858210156110d15787850151600019600388901b60f8161c191681555b5050505050600190811b0190555056fea264697066735822122090e0982c239df0472805c2c28359a2d84e34a7f094b6c29e9cc7a75e2c5e51ca64736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100885760003560e01c8063c87b56dd1161005b578063c87b56dd146100f4578063cc1306db14610114578063de5af49b14610127578063e8a3d4851461015557600080fd5b806342495a951461008d578063856a7ffa146100a257806391074f98146100b5578063af806d56146100e1575b600080fd5b6100a061009b366004610c21565b61015d565b005b6100a06100b0366004610cc2565b61020f565b6100c86100c3366004610d13565b61024c565b6040516100d89493929190610d7e565b60405180910390f35b6100a06100ef366004610dc9565b61040c565b610107610102366004610e3d565b6104cc565b6040516100d89190610e56565b6100a0610122366004610e69565b6106f5565b610147610135366004610d13565b60016020526000908152604090205481565b6040519081526020016100d8565b6101076107ec565b846001600160a01b03811633148015906101dc5750604051630935e01b60e21b81523360048201526001600160a01b038216906324d7806c90602401602060405180830381865afa1580156101b6573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101da9190610e93565b155b156101fa576040516302bd6bd160e01b815260040160405180910390fd5b61020786868686866108a1565b505050505050565b600080828060200190518101906102269190610efa565b915091506102473383604051806020016040528060008152508460006108a1565b505050565b60006020819052908152604090208054819061026790610f5e565b80601f016020809104026020016040519081016040528092919081815260200182805461029390610f5e565b80156102e05780601f106102b5576101008083540402835291602001916102e0565b820191906000526020600020905b8154815290600101906020018083116102c357829003601f168201915b5050505050908060010180546102f590610f5e565b80601f016020809104026020016040519081016040528092919081815260200182805461032190610f5e565b801561036e5780601f106103435761010080835404028352916020019161036e565b820191906000526020600020905b81548152906001019060200180831161035157829003601f168201915b50505050509080600201805461038390610f5e565b80601f01602080910402602001604051908101604052809291908181526020018280546103af90610f5e565b80156103fc5780601f106103d1576101008083540402835291602001916103fc565b820191906000526020600020905b8154815290600101906020018083116103df57829003601f168201915b5050505050908060030154905084565b826001600160a01b038116331480159061048b5750604051630935e01b60e21b81523360048201526001600160a01b038216906324d7806c90602401602060405180830381865afa158015610465573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104899190610e93565b155b156104a9576040516302bd6bd160e01b815260040160405180910390fd5b6104c68484604051806020016040528060008152508560006108a1565b50505050565b336000908152602081905260408082208151608081019092528054606093929190829082906104fa90610f5e565b80601f016020809104026020016040519081016040528092919081815260200182805461052690610f5e565b80156105735780601f1061054857610100808354040283529160200191610573565b820191906000526020600020905b81548152906001019060200180831161055657829003601f168201915b5050505050815260200160018201805461058c90610f5e565b80601f01602080910402602001604051908101604052809291908181526020018280546105b890610f5e565b80156106055780601f106105da57610100808354040283529160200191610605565b820191906000526020600020905b8154815290600101906020018083116105e857829003601f168201915b5050505050815260200160028201805461061e90610f5e565b80601f016020809104026020016040519081016040528092919081815260200182805461064a90610f5e565b80156106975780601f1061066c57610100808354040283529160200191610697565b820191906000526020600020905b81548152906001019060200180831161067a57829003601f168201915b5050505050815260200160038201548152505090508060000151516000036106be57600080fd5b80516106c9846109b3565b6020808401516040516106de94939201610f98565b604051602081830303815290604052915050919050565b816001600160a01b03811633148015906107745750604051630935e01b60e21b81523360048201526001600160a01b038216906324d7806c90602401602060405180830381865afa15801561074e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906107729190610e93565b155b15610792576040516302bd6bd160e01b815260040160405180910390fd5b6001600160a01b03831660008181526001602052604090819020849055517ff2e078c4022bfd6c56addd06540a4a5dd4252b6b2c424b6840c184063f48fc27906107df9085815260200190565b60405180910390a2505050565b3360009081526020819052604081206002018054606092919061080e90610f5e565b80601f016020809104026020016040519081016040528092919081815260200182805461083a90610f5e565b80156108875780601f1061085c57610100808354040283529160200191610887565b820191906000526020600020905b81548152906001019060200180831161086a57829003601f168201915b50505050509050805160000361089c57600080fd5b919050565b80158015906108af57504281115b156108e6576040517feef043fe00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b604080516080810182528581526020808201869052818301859052606082018490526001600160a01b038816600090815290819052919091208151819061092d9082611021565b50602082015160018201906109429082611021565b50604082015160028201906109579082611021565b5060608201518160030155905050846001600160a01b03167f5eff125d5659803f33dbda215d6e8bfe0a404fd213a9ecb5e61973ee16cb17e7858585856040516109a49493929190610d7e565b60405180910390a25050505050565b606060006109c083610a53565b600101905060008167ffffffffffffffff8111156109e0576109e0610b4d565b6040519080825280601f01601f191660200182016040528015610a0a576020820181803683370190505b5090508181016020015b600019017f3031323334353637383961626364656600000000000000000000000000000000600a86061a8153600a8504945084610a1457509392505050565b6000807a184f03e93ff9f4daa797ed6e38ed64bf6a1f0100000000000000008310610a9c577a184f03e93ff9f4daa797ed6e38ed64bf6a1f010000000000000000830492506040015b6d04ee2d6d415b85acef81000000008310610ac8576d04ee2d6d415b85acef8100000000830492506020015b662386f26fc100008310610ae657662386f26fc10000830492506010015b6305f5e1008310610afe576305f5e100830492506008015b6127108310610b1257612710830492506004015b60648310610b24576064830492506002015b600a8310610b30576001015b92915050565b80356001600160a01b038116811461089c57600080fd5b634e487b7160e01b600052604160045260246000fd5b604051601f8201601f1916810167ffffffffffffffff81118282101715610b8c57610b8c610b4d565b604052919050565b600067ffffffffffffffff821115610bae57610bae610b4d565b50601f01601f191660200190565b6000610bcf610bca84610b94565b610b63565b9050828152838383011115610be357600080fd5b828260208301376000602084830101529392505050565b600082601f830112610c0b57600080fd5b610c1a83833560208501610bbc565b9392505050565b600080600080600060a08688031215610c3957600080fd5b610c4286610b36565b9450602086013567ffffffffffffffff80821115610c5f57600080fd5b610c6b89838a01610bfa565b95506040880135915080821115610c8157600080fd5b610c8d89838a01610bfa565b94506060880135915080821115610ca357600080fd5b50610cb088828901610bfa565b95989497509295608001359392505050565b600060208284031215610cd457600080fd5b813567ffffffffffffffff811115610ceb57600080fd5b8201601f81018413610cfc57600080fd5b610d0b84823560208401610bbc565b949350505050565b600060208284031215610d2557600080fd5b610c1a82610b36565b60005b83811015610d49578181015183820152602001610d31565b50506000910152565b60008151808452610d6a816020860160208601610d2e565b601f01601f19169290920160200192915050565b608081526000610d916080830187610d52565b8281036020840152610da38187610d52565b90508281036040840152610db78186610d52565b91505082606083015295945050505050565b600080600060608486031215610dde57600080fd5b610de784610b36565b9250602084013567ffffffffffffffff80821115610e0457600080fd5b610e1087838801610bfa565b93506040860135915080821115610e2657600080fd5b50610e3386828701610bfa565b9150509250925092565b600060208284031215610e4f57600080fd5b5035919050565b602081526000610c1a6020830184610d52565b60008060408385031215610e7c57600080fd5b610e8583610b36565b946020939093013593505050565b600060208284031215610ea557600080fd5b81518015158114610c1a57600080fd5b600082601f830112610ec657600080fd5b8151610ed4610bca82610b94565b818152846020838601011115610ee957600080fd5b610d0b826020830160208701610d2e565b60008060408385031215610f0d57600080fd5b825167ffffffffffffffff80821115610f2557600080fd5b610f3186838701610eb5565b93506020850151915080821115610f4757600080fd5b50610f5485828601610eb5565b9150509250929050565b600181811c90821680610f7257607f821691505b602082108103610f9257634e487b7160e01b600052602260045260246000fd5b50919050565b60008451610faa818460208901610d2e565b845190830190610fbe818360208901610d2e565b8451910190610fd1818360208801610d2e565b0195945050505050565b601f82111561024757600081815260208120601f850160051c810160208610156110025750805b601f850160051c820191505b818110156102075782815560010161100e565b815167ffffffffffffffff81111561103b5761103b610b4d565b61104f816110498454610f5e565b84610fdb565b602080601f831160018114611084576000841561106c5750858301515b600019600386901b1c1916600185901b178555610207565b600085815260208120601f198616915b828110156110b357888601518255948401946001909101908401611094565b50858210156110d15787850151600019600388901b60f8161c191681555b5050505050600190811b0190555056fea264697066735822122090e0982c239df0472805c2c28359a2d84e34a7f094b6c29e9cc7a75e2c5e51ca64736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "contractURI()": {
+        "details": "reverts if a contract uri is not provided",
+        "returns": {
+          "_0": "contract uri for the contract metadata"
+        }
+      },
+      "initializeWithData(bytes)": {
+        "params": {
+          "data": "passed in for initialization"
+        }
+      },
+      "tokenURI(uint256)": {
+        "details": "reverts if a contract uri is not set",
+        "returns": {
+          "_0": "token URI for the given token ID and contract (set by msg.sender)"
+        }
+      },
+      "updateMetadataBase(address,string,string)": {
+        "params": {
+          "baseUri": "new base URI",
+          "newContractUri": "new contract URI (can be an empty string)"
+        }
+      },
+      "updateMetadataBaseWithDetails(address,string,string,string,uint256)": {
+        "params": {
+          "freezeAt": "time to freeze the contract metadata at (set to 0 to disable)",
+          "metadataBase": "new base URI to update metadata with",
+          "metadataExtension": "new extension to append to base metadata URI",
+          "target": "target contract to update metadata for"
+        }
+      },
+      "updateProvenanceHash(address,bytes32)": {
+        "params": {
+          "provenanceHash": "provenance hash to set",
+          "target": "target address to update"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "events": {
+      "MetadataUpdated(address,string,string,string,uint256)": {
+        "notice": "Event to mark updated metadata information"
+      },
+      "ProvenanceHashUpdated(address,bytes32)": {
+        "notice": "Hash to mark updated provenance hash"
+      }
+    },
+    "kind": "user",
+    "methods": {
+      "contractURI()": {
+        "notice": "A contract URI for the given drop contract"
+      },
+      "initializeWithData(bytes)": {
+        "notice": "Standard init for drop metadata from root drop contract"
+      },
+      "metadataBaseByContract(address)": {
+        "notice": "NFT metadata by contract"
+      },
+      "provenanceHashes(address)": {
+        "notice": "Optional provenance hashes for NFT metadata by contract"
+      },
+      "tokenURI(uint256)": {
+        "notice": "A token URI for the given drops contract"
+      },
+      "updateMetadataBase(address,string,string)": {
+        "notice": "Update metadata base URI and contract URI"
+      },
+      "updateMetadataBaseWithDetails(address,string,string,string,uint256)": {
+        "notice": "Update metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing detailsUpdate metadata base URI, extension, contract URI and freezing details"
+      },
+      "updateProvenanceHash(address,bytes32)": {
+        "notice": "Update the provenance hash (optional) for a given nft"
+      }
+    },
+    "notice": "Drops metadata system",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 6609,
+        "contract": "src/metadata/DropMetadataRenderer.sol:DropMetadataRenderer",
+        "label": "metadataBaseByContract",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_struct(MetadataURIInfo)6603_storage)"
+      },
+      {
+        "astId": 6614,
+        "contract": "src/metadata/DropMetadataRenderer.sol:DropMetadataRenderer",
+        "label": "provenanceHashes",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_address,t_bytes32)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_bytes32)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bytes32)",
+        "numberOfBytes": "32",
+        "value": "t_bytes32"
+      },
+      "t_mapping(t_address,t_struct(MetadataURIInfo)6603_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct DropMetadataRenderer.MetadataURIInfo)",
+        "numberOfBytes": "32",
+        "value": "t_struct(MetadataURIInfo)6603_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(MetadataURIInfo)6603_storage": {
+        "encoding": "inplace",
+        "label": "struct DropMetadataRenderer.MetadataURIInfo",
+        "members": [
+          {
+            "astId": 6596,
+            "contract": "src/metadata/DropMetadataRenderer.sol:DropMetadataRenderer",
+            "label": "base",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 6598,
+            "contract": "src/metadata/DropMetadataRenderer.sol:DropMetadataRenderer",
+            "label": "extension",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 6600,
+            "contract": "src/metadata/DropMetadataRenderer.sol:DropMetadataRenderer",
+            "label": "contractURI",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 6602,
+            "contract": "src/metadata/DropMetadataRenderer.sol:DropMetadataRenderer",
+            "label": "freezeAt",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "128"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

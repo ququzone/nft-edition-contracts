@@ -7,13 +7,13 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     const { deploy } = deployments
     const { deployer } = await getNamedAccounts()
 
-    await deploy('DropMetadataRenderer', {
+    const drop = await deploy('DropMetadataRenderer', {
         from: deployer,
         args: [],
         log: true,
     })
 
-    await deploy('EditionMetadataRenderer', {
+    const edition = await deploy('EditionMetadataRenderer', {
         from: deployer,
         args: [],
         log: true,
@@ -21,7 +21,12 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
     await deploy('NFTCreatorV1', {
         from: deployer,
-        args: [0, '0x0000000000000000000000000000000000000000'],
+        args: [
+            0,
+            '0x0000000000000000000000000000000000000000',
+            edition.address,
+            drop.address
+        ],
         log: true,
     })
 }
