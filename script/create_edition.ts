@@ -5,24 +5,6 @@ import { utils } from "ethers"
 import { NFTCreatorV1, DropMetadataRenderer, ERC721Drop__factory } from "../typechain"
 
 async function main() {
-    // const renderer = (await ethers.getContract("DropMetadataRenderer")) as DropMetadataRenderer
-    // const metadataInitializer = utils.defaultAbiCoder.encode(
-    //     ["string", "string"],
-    //     ["https://nft.asset/", ""]
-    // )
-    // const saleConfig = utils.defaultAbiCoder.encode(
-    //     ["uint104","uint32","uint64","uint64","uint64","uint64","bytes32"],
-    //     [
-    //         0, // publicSalePrice
-    //         10, // maxSalePurchasePerAddress
-    //         1, // publicSaleStart
-    //         9999999999, // publicSaleEnd
-    //         0, // presaleStart
-    //         0, // presaleEnd
-    //         `0x${"0".repeat(64)}` // presaleMerkleRoot
-    //     ]
-    // )
-
     const user = new ethers.Wallet(process.env.USER_KEY!, ethers.provider)
     const creator = (await ethers.getContract("NFTCreatorV1")) as NFTCreatorV1
 
