@@ -61,7 +61,7 @@ export interface NFTCreatorV1Interface extends utils.Interface {
   functions: {
     "createAndConfigureDrop(string,string,address,uint64,uint16,address,bytes[],address,bytes)": FunctionFragment;
     "createDrop(string,string,address,uint64,uint16,address,(uint104,uint32,uint64,uint64,uint64,uint64,bytes32),string,string)": FunctionFragment;
-    "createEdition(string,string,uint64,uint16,address,address,(uint104,uint32,uint64,uint64,uint64,uint64,bytes32),string,string,string)": FunctionFragment;
+    "createEdition(string,string,address,uint64,uint16,address,(uint104,uint32,uint64,uint64,uint64,uint64,bytes32),string,string,string)": FunctionFragment;
     "dropMetadataRenderer()": FunctionFragment;
     "editionMetadataRenderer()": FunctionFragment;
     "mintFee()": FunctionFragment;
@@ -124,9 +124,9 @@ export interface NFTCreatorV1Interface extends utils.Interface {
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
       PromiseOrValue<string>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
       PromiseOrValue<string>,
       IERC721Drop.SalesConfigurationStruct,
       PromiseOrValue<string>,
@@ -309,10 +309,10 @@ export interface NFTCreatorV1 extends BaseContract {
     createEdition(
       name: PromiseOrValue<string>,
       symbol: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
       editionSize: PromiseOrValue<BigNumberish>,
       royaltyBPS: PromiseOrValue<BigNumberish>,
       fundsRecipient: PromiseOrValue<string>,
-      defaultAdmin: PromiseOrValue<string>,
       saleConfig: IERC721Drop.SalesConfigurationStruct,
       description: PromiseOrValue<string>,
       animationURI: PromiseOrValue<string>,
@@ -392,10 +392,10 @@ export interface NFTCreatorV1 extends BaseContract {
   createEdition(
     name: PromiseOrValue<string>,
     symbol: PromiseOrValue<string>,
+    defaultAdmin: PromiseOrValue<string>,
     editionSize: PromiseOrValue<BigNumberish>,
     royaltyBPS: PromiseOrValue<BigNumberish>,
     fundsRecipient: PromiseOrValue<string>,
-    defaultAdmin: PromiseOrValue<string>,
     saleConfig: IERC721Drop.SalesConfigurationStruct,
     description: PromiseOrValue<string>,
     animationURI: PromiseOrValue<string>,
@@ -475,10 +475,10 @@ export interface NFTCreatorV1 extends BaseContract {
     createEdition(
       name: PromiseOrValue<string>,
       symbol: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
       editionSize: PromiseOrValue<BigNumberish>,
       royaltyBPS: PromiseOrValue<BigNumberish>,
       fundsRecipient: PromiseOrValue<string>,
-      defaultAdmin: PromiseOrValue<string>,
       saleConfig: IERC721Drop.SalesConfigurationStruct,
       description: PromiseOrValue<string>,
       animationURI: PromiseOrValue<string>,
@@ -579,10 +579,10 @@ export interface NFTCreatorV1 extends BaseContract {
     createEdition(
       name: PromiseOrValue<string>,
       symbol: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
       editionSize: PromiseOrValue<BigNumberish>,
       royaltyBPS: PromiseOrValue<BigNumberish>,
       fundsRecipient: PromiseOrValue<string>,
-      defaultAdmin: PromiseOrValue<string>,
       saleConfig: IERC721Drop.SalesConfigurationStruct,
       description: PromiseOrValue<string>,
       animationURI: PromiseOrValue<string>,
@@ -663,10 +663,10 @@ export interface NFTCreatorV1 extends BaseContract {
     createEdition(
       name: PromiseOrValue<string>,
       symbol: PromiseOrValue<string>,
+      defaultAdmin: PromiseOrValue<string>,
       editionSize: PromiseOrValue<BigNumberish>,
       royaltyBPS: PromiseOrValue<BigNumberish>,
       fundsRecipient: PromiseOrValue<string>,
-      defaultAdmin: PromiseOrValue<string>,
       saleConfig: IERC721Drop.SalesConfigurationStruct,
       description: PromiseOrValue<string>,
       animationURI: PromiseOrValue<string>,
